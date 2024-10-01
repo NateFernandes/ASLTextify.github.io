@@ -1,0 +1,339 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background:#caf0f8;
+}
+
+.contact-container{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.contact-left{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+}
+
+.contact-left-title h2{
+    font-weight: 600;
+    color: #0094FF;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.contact-left-title h3{
+    font-weight: 500;
+    color: black;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.contact-left-title hr{
+    margin-top: -10px;
+    border: none;
+    position: absolute;
+    width: 20%;
+    height: 6px;
+    background: linear-gradient(270deg, #0094FF, rgb(192, 1, 255));
+    border-radius: 10px;
+    margin-bottom: 20px;
+    align-items: left;
+}
+
+.contact-inputs{
+    width: 425px;
+    height: 70px;
+    border-color: #2600ff;
+    outline: none;
+    padding-left: 25px;
+    font-weight: 500;
+    border-radius: 10px;
+}
+.contact-inputs:hover{
+    border: 2.5px solid rgb(192, 1, 255);
+    box-shadow: 1rem 14px 28px rgba(0, 0, 0, 0.15);
+}
+.contact-inputs:focus{
+    border: 2.5px solid rgb(192, 1, 255);
+    box-shadow: 1rem 14px 28px rgba(0, 0, 0, 0.15);
+}
+.contact-inputs::placeholder{
+    color: #23211f;
+}
+
+.contact-message{
+    width: 425px;
+    height: 70px;
+    border-color: #2600ff;
+    border-width: 2px;
+    outline: none;
+    padding-left: 25px;
+    font-weight: 500;
+    border-radius: 10px;
+}
+.contact-message:hover{
+    border: 2.5px solid rgb(192, 1, 255);
+    box-shadow: 1rem 14px 28px rgba(0, 0, 0, 0.15);
+}
+
+.contact-message:focus{
+    border: 2.5px solid rgb(192, 1, 255);
+    box-shadow: 1rem 14px 28px rgba(0, 0, 0, 0.15);
+}
+
+.contact-left textarea{
+    height: 140px;
+    padding-top: 15px;
+    border-radius: 20px;
+}
+
+.contact-left button{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    gap: 10px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(270deg, #0094FF, rgb(192, 1, 255));
+    cursor: pointer;
+}
+
+.contact-left button img{
+    height: 20px;
+}
+
+.contact-right img{
+    width: 500px;
+}
+
+
+
+@media (max-width:800px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-inputs{
+        width: 80vw;
+    }
+
+    .contact-message{
+        width: 80vw;
+    }
+
+    .contact-right{
+        display: block;
+        margin-top: 50px; /* Add some space between form and image */
+        margin-bottom: 100px;
+    }
+
+    .contact-right img {
+        width: 80vw; 
+    }
+
+    .contact-left-title hr{
+        margin-top: -10px;
+        border: none;
+        position: absolute;
+        width: 40%;
+        height: 6px;
+        background: linear-gradient(270deg, #0094FF, rgb(192, 1, 255));
+        border-radius: 10px;
+        margin-bottom: 20px;
+        align-items: left;
+    }
+
+    .socials {
+        margin-bottom: -50px;
+    }
+
+}
+
+
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: -100px;
+}
+
+.socials a {
+    text-decoration: none;
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: white; /* Background for the text that rolls out */
+    padding: 13px;
+    border-radius: 50px;
+    position: relative;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    width: 50px; /* Initially, only the icon is visible */
+    height: 50px;
+}
+
+.social-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.social-button span {
+    display: inline-block;
+    color: white;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-button:hover {
+    width: 250px; /* Expand the button when hovered */
+}
+
+.social-button:hover span {
+    opacity: 1; /* Show the text when hovered */
+    transform: translateX(0); /* Animate the text rolling out */
+}
+
+.social-button.email {
+    background-color: #a521d9; /* Customize each button's background color */
+}
+
+.social-button.phone {
+    background-color: #a521d9;
+}
+
+.social-button.instagram {
+    background-color: #a521d9;
+}
+
+.social-button.facebook {
+    background-color: #a521d9;
+}
+
+
+
+/* Styles for the dark mode toggle button */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    margin-bottom: 1px;
+    right: 20px;
+    background-color: #000000;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle img {
+    width: 30px;
+    height: 25px;
+}
+
+.dark-mode-toggle:hover {
+    background-color: #005f99;
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: #1a1a1a;
+    color: #f1f1f1;
+}
+
+.dark-mode .navbar {
+    background-color: #000000;
+}
+
+.dark-mode .navbar-center a{
+    color: #ffffff;
+}
+
+.dark-mode .dropdown .dropdown-content{
+    background-color: #1E1E1E;
+}
+
+.dark-mode .dropdown-content a:hover {
+    background-color: #000000;
+}
+
+.dark-mode .dropdown-content a {
+    color: #0094FF;
+}
+
+.dark-mode .dropdown-content small {
+    color: #ffffff;
+}
+
+.dark-mode .contact-container {
+    background-color: #1E1E1E;
+}
+
+.dark-mode .contact-container h3{
+    color: #ffffff;
+}
+
+.dark-mode .contact-inputs place{
+    background-color: #ffffff;
+}
+
+
+.dark-mode input, 
+.dark-mode textarea {
+    background-color: #444;
+    color: #f1f1f1;
+    border: 2px solid #555;
+}
+
+.dark-mode input::placeholder, 
+.dark-mode textarea::placeholder {
+    color: #ffffff;
+}
+
+.dark-mode button {
+    background: linear-gradient(270deg, #005f99, #590099);
+}
+
+.dark-mode .social-button {
+    background-color: #ffffff;
+}
+
+.dark-mode .social-button span{
+    color: #000000;
+}
+
+.dark-mode .social-button img {
+    filter: invert(100%);
+}
+
+.dark-mode .contact-inputs{
+    border-color: #2600ff;
+}
+
+.dark-mode .contact-message{
+    border-color: #2600ff;
+}
+
+/* Add more dark-mode specific styles as needed */
+
+

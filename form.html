@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .feedback-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .instruction {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .stars {
+            display: flex;
+            justify-content: center;
+            direction: rtl;
+            font-size: 2.5em;
+            cursor: pointer;
+            user-select: none;
+            margin-bottom: 15px;
+        }
+        .stars input {
+            display: none;
+        }
+        .stars label {
+            color: #ccc;
+            padding: 0 5px;
+        }
+        .stars input:checked ~ label {
+            color: gold;
+        }
+        .stars input:checked ~ input ~ label {
+            color: gold;
+        }
+        .feedback-text {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+            resize: none;
+        }
+        .submit-button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            margin-top: 10px;
+            color: #333;
+            font-size: 1.1em;
+            text-align: center;
+            display: none; /* Hide by default */
+        }
+    </style>
+</head>
+<body>
+    <div class="feedback-form">
+        <h2>Feedback</h2>
+        <div class="instruction">Please rate your experience below</div>
+        <div class="stars" id="stars">
+            <input type="radio" id="star5" name="rating" value="5">
+            <label for="star5" title="5 stars">&#9733;</label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4" title="4 stars">&#9733;</label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3" title="3 stars">&#9733;</label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2" title="2 stars">&#9733;</label>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1" title="1 star">&#9733;</label>
+        </div>
+        <textarea class="feedback-text" id="feedback" placeholder="Write your feedback here..."></textarea>
+        <button class="submit-button" onclick="submitFeedback()">Submit</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        function submitFeedback() {
+            const rating = document.querySelector('input[name="rating"]:checked');
+            const feedback = document.getElementById('feedback').value.trim();
+            const messageBox = document.getElementById('message');
+            
+            if (rating) {
+                const starValue = rating.value;
+                const reviewText = `Rated ${starValue} stars. ${feedback}`;
+                const reviewLink = `https://g.page/r/CdkOQz0zFvI4EAI/review?pli=1`;
+
+                // Clear any previous error message
+                messageBox.style.display = 'none';
+
+                // Confirm before redirecting
+                const confirmation = confirm("You will be redirected to Google Reviews to submit your feedback. Your review text has been copied to the clipboard. Please paste it into the review box on the new tab.");
+                
+                if (confirmation) {
+                    // Copy review text to clipboard
+                    navigator.clipboard.writeText(reviewText).then(() => {
+                        // Open the Google Reviews page in a new tab
+                        window.open(reviewLink, '_blank');
+                    }).catch(err => {
+                        messageBox.innerText = 'Failed to copy review text.';
+                        messageBox.style.display = 'block';
+                    });
+                }
+            } else {
+                messageBox.innerText = 'Please select a rating.';
+                messageBox.style.display = 'block';
+            }
+        }
+
+        // Remove error message when a star is selected
+        document.getElementById('stars').addEventListener('change', function() {
+            const messageBox = document.getElementById('message');
+            messageBox.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

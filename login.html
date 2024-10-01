@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href=".css">
+    <title>ASLTextify | Login</title>
+    <link rel="icon" type="image/x-icon" href="asltextify-favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="review.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="asltextify-black.png" alt="ASLTextify Logo">
+        </div>
+        <div class="navbar-center">
+            <a href="index.html" class="active">Home</a>
+            <div class="dropdown">
+                <a href="javascript:void(0);">
+                    Translator
+                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                    </svg>
+                </a>
+                <div class="dropdown-content">
+                    <a href="#asl-to-text">ASL to Text<br><small>Transform real-time ASL gestures to text</small></a>
+                    <a href="#text-to-asl">Text to ASL<br><small>Convert spoken words into sign language gestures</small></a>
+                </div>
+            </div>
+            <a href="#courses">Courses</a>
+            <div class="dropdown">
+                <a href="javascript:void(0);">
+                    More
+                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                    </svg>
+                </a>
+                <div class="dropdown-content more-dropdown">
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <a href="login.html" class="sign-in">Sign In</a>
+            <div class="user-icon">
+                <a href="login.html" class="sign-in"><img src="add user.svg" alt="User Icon"></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hamburger-icon" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+        <a href="index.html">Home</a>
+        
+        <!-- Translator with dropdown arrow -->
+        <div class="dropdown">
+            <a href="javascript:void(0);" onclick="toggleDropdown(this)">
+                Translator
+                <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                </svg>
+            </a>
+            <div class="dropdown-content">
+                <a href="#asl-to-text">ASL to Text</a>
+                <a href="#text-to-asl">Text to ASL</a>
+            </div>
+        </div>
+        
+        <a href="#courses">Courses</a>
+        
+        <!-- More with dropdown arrow -->
+        <div class="dropdown">
+            <a href="javascript:void(0);" onclick="toggleDropdown(this)">
+                More
+                <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                </svg>
+            </a>
+            <div class="dropdown-content">
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="navres.js"></script>
+
+    <div class="container">
+        <!-- Left section with slideshow -->
+        <div class="slideshow-container">
+            <div class="slideshow">
+                <div class="slide fade">
+                    <img src="Images/slide1.png" alt="ASL Guidance Image 1">
+                    <div class="caption">
+                        <h2>Master ASL with Expert Guidance</h2>
+                        <p>Enhance your ASL skills through One-on-One engaging sessions with experienced instructors.</p>
+                    </div>
+                </div>
+                <div class="slide fade">
+                    <img src="Images/slide2.png" alt="ASL Guidance Image 2">
+                    <div class="caption">
+                        <h2>Connect Easily Using ASL</h2>
+                        <p>Effortlessly communicate and connect with others using our easy-to-use platform.</p>
+                    </div>
+                </div>
+                <div class="slide fade">
+                    <img src="Images/slide3.png" alt="ASL Guidance Image 3">
+                    <div class="caption">
+                        <h2>Interactive ASL Learning</h2>
+                        <p>Our interactive learning tools help you grasp ASL quickly and effectively.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Dots for navigation -->
+            <div class="dots">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+
+        <!-- Right section with login form -->
+        <div class="login-container">
+            <h2>Welcome Back!</h2>
+            <form class="login-form">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="example@gmail.com" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="********" required>
+                <button type="submit">Sign In</button>
+            </form>
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+
+
+</body>
+</html>
