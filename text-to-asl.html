@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="text-to-asl.css">
+    <title>ASLTextify | Text-to-ASL</title>
+    <link rel="icon" type="image/x-icon" href="asltextify-favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="review.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="index.html">
+                <img src="images/asltextify-black.png" alt="ASLTextify Logo">
+            </a>
+        </div>
+        <div class="navbar-center">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="javascript:void(0);" class="active"> 
+                    Translator
+                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                    </svg>
+                </a>
+                <div class="dropdown-content">
+                    <a href="asl-to-text.html">ASL to Text<br><small>Transform real-time ASL gestures to text</small></a>
+                    <a href="text-to-asl.html" class="active">Text to ASL<br><small>Convert spoken words into sign language gestures</small></a>
+                </div>
+            </div>
+            <a href="Courses.html">Courses</a>
+            <div class="dropdown">
+                <a href="javascript:void(0);">
+                    More
+                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                    </svg>
+                </a>
+                <div class="dropdown-content more-dropdown">
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <a href="signup.html" class="sign-in">Sign Up</a>
+            <div class="user-icon">
+                <a href="signup.html" class="sign-in"><img src="Images/add user.svg" alt="User Icon"></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hamburger-icon" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+        <a href="index.html">Home</a>
+        
+        <!-- Translator with dropdown arrow -->
+        <div class="dropdown">
+            <a href="javascript:void(0);" onclick="toggleDropdown(this)">
+                Translator
+                <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                </svg>
+            </a>
+            <div class="dropdown-content">
+                <a href="asl-to-text.html">ASL to Text</a>
+                <a href="text-to-asl.html">Text to ASL</a>
+            </div>
+        </div>
+        
+        <a href="Courses.html">Courses</a>
+        
+        <!-- More with dropdown arrow -->
+        <div class="dropdown">
+            <a href="javascript:void(0);" onclick="toggleDropdown(this)">
+                More
+                <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                </svg>
+            </a>
+            <div class="dropdown-content">
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Text to ASL Section -->
+    <section id="text-to-asl" class="translator-section">
+        <h1>Text to ASL</h1>
+        <p>Enter your text in the box below to convert it to ASL gestures</p>
+        
+        <div class="translator-container">
+            <!-- Input text box -->
+            <div class="input-box">
+                <label for="input-text">English <img src="Images/speaker.png" alt="Speaker Icon" class="icon"></label>
+                
+                <div class="textarea-container">
+                    <textarea id="input-text" placeholder="Enter your text..."></textarea>
+                </div>
+                
+                <img src="Images/mic.png" alt="Microphone Icon" class="mic-icon">
+                
+                <button id="translate-button" onclick="translateToASL()">Translate</button>
+            </div>
+            
+            <!-- Output translation box -->
+            <div class="output-box">
+                <label for="output-translation">Translation</label>
+                <div id="output-translation"></div> <!-- This will be populated dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section class="feedback-section">
+        <h2>Help Us Improve</h2>
+        <p>Fill out the feedback form below to help us improve specific features or to enhance the overall experience of our users.</p>
+    </section>
+        
+    <div class="feedback-form">
+        <h2>Feedback</h2>
+        <div class="instruction">Please rate your experience below</div>
+        <div class="stars" id="stars">
+            <input type="radio" id="star5" name="rating" value="5">
+            <label for="star5" title="5 stars">&#9733;</label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4" title="4 stars">&#9733;</label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3" title="3 stars">&#9733;</label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2" title="2 stars">&#9733;</label>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1" title="1 star">&#9733;</label>
+        </div>
+        <textarea class="feedback-text" id="feedback" placeholder="Write your feedback here..."></textarea>
+        <button class="submit-button" onclick="submitFeedback()">Submit</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <button id="dark-mode-toggle" class="dark-mode-toggle">
+        <img src="Images/dark_mode.svg" alt="Dark Mode Icon">
+    </button>
+    
+    <script src="navres.js"></script>
+    <script src="text-to-asl.js"></script>
+    <script src="dark-mode.js"></script>
+</body>
+</html>

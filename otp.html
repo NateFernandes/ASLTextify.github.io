@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="otp.css" />
+    <link rel="stylesheet" href="CSS/asl-to-text-capture.css">
+    <title>ASLTextify | OTP Verification</title>
+    <link rel="icon" type="image/x-icon" href="asltextify-favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="CSS/review.css">
+    <script>
+        
+    </script>
+</head>
+<body>
+
+    <div class="logo-container">
+        <a href="index.html"><img src="Images/asltextify-black.png" alt="Logo" class="logo"></a>
+    </div>
+
+    <!-- Email Verification Form (default visible) -->
+    <div class="email-card" id="emailForm">
+        <h1>Verification</h1>
+        <h2>Email Verification</h2>
+        <form id="emailForm" onsubmit="submitForm(event, 'email')">
+            <div class="email-input-container">
+                <input type="email" id="email" placeholder="Enter your email address" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <p>Want to verify via phone? <a href="javascript:void(0);" onclick="switchToPhoneVerification()"><br>Switch to phone verification</a></p>
+    </div>
+    
+    <!-- Phone Number Verification Form (hidden initially) -->
+    <div class="phone-number-card" id="phoneForm" style="display: none;">
+        <h1>Verification</h1>
+        <h2>Phone Number Verification</h2>
+        <form id="phoneNumberForm" onsubmit="submitForm(event, 'phone')">
+            <div class="phone-input-container">
+                <img src="Images/UAE.png" alt="UAE flag" class="uae-flag">
+                <span class="country-code">+971</span>
+                <input type="text" id="phoneNumber" maxlength="9" placeholder="Enter your phone number" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <p>Want to verify via email? <a href="javascript:void(0);" onclick="switchToEmailVerification()"><br>Switch to email verification</a></p>
+    </div>
+
+    <!-- OTP Verification Form (hidden initially) -->
+    <div class="otp-card" id="otpForm" style="display: none;">
+        <h1>OTP Verification</h1>
+        <p id="otpMessage">Code has been sent to your entered contact details</p>
+        <div class="otp-card-inputs">
+            <input type="text" maxlength="1" autofocus>
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+        </div>
+        <p>Didn't get the OTP? <a href="otp.html">Resend</a></p>
+        <button disabled>Verify</button>
+    </div>
+
+    <button id="dark-mode-toggle" class="dark-mode-toggle">
+        <img src="Images/dark_mode.svg" alt="Dark Mode Icon">
+    </button>
+
+    <script src="otp.js"></script>
+    <script src="dark-mode-signup.js"></script>
+</body>
+</html>

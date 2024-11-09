@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Review Carousel</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: calc(100% - 40px); /* Added padding to left and right */
+            padding: 0px 20px; /* Extra padding on left and right */
+            margin: 0 auto; /* Center swiper */
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .testimonial-card {
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.05);
+        }
+
+        .testimonial-card img {
+            border-radius: 50%;
+            border: 2px solid #00008B;
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .testimonial-card h3 {
+            margin: 8px 0 4px;
+            color: #00008B;
+            font-size: 16px;
+        }
+
+        .testimonial-card p {
+            font-weight: 400;
+            font-size: 12px;
+            color: #333;
+            overflow: hidden;
+            display: -webkit-box; /* For WebKit browsers */
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3; /* WebKit-specific */
+            line-clamp: 3; /* Future standard property */
+            box-orient: vertical; /* Standard property */
+            text-overflow: ellipsis; /* Add ellipsis for overflow text */
+        }
+
+        .stars {
+            color: #FF7A00;
+            margin: 4px 0;
+        }
+
+        /* Swiper Navigation */
+        .swiper-button-next, .swiper-button-prev {
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .swiper:hover .swiper-button-next, .swiper:hover .swiper-button-prev {
+            opacity: 1;
+        }
+
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1920px) {
+            .swiper {
+                height: 300px;
+            }
+
+            .testimonial-card {
+                width: 270px;
+                height: 190px;
+            }
+
+            .testimonial-card img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .testimonial-card h3 {
+                font-size: 18px;
+            }
+
+            .testimonial-card p {
+                font-size: 14px;
+                -webkit-line-clamp: 4; /* Adjusted for larger screens */
+                line-clamp: 4; /* Adjusted for larger screens */
+            }
+        }
+        
+        @media (max-width: 1536px) {
+            .swiper {
+                height: 270px;
+            }
+
+            .testimonial-card {
+                width: 260px;
+                height: 180px;
+            }
+
+            .testimonial-card img {
+                width: 39px;
+                height: 39px;
+            }
+
+            .testimonial-card h3 {
+                font-size: 17px;
+            }
+
+            .testimonial-card p {
+                font-size: 13px;
+                -webkit-line-clamp: 4; /* Adjusted for larger screens */
+                line-clamp: 4; /* Adjusted for larger screens */
+            }
+        }
+
+        @media (max-width: 1366px) {
+            .swiper {
+                height: 260px;
+            }
+
+            .testimonial-card {
+                width: 250px;
+                height: 175px;
+            }
+
+            .testimonial-card img {
+                width: 38px;
+                height: 38px;
+            }
+
+            .testimonial-card h3 {
+                font-size: 17px;
+            }
+
+            .testimonial-card p {
+                font-size: 13px;
+                -webkit-line-clamp: 4; /* Adjusted for medium screens */
+                line-clamp: 4; /* Adjusted for medium screens */
+            }
+        }
+
+        @media (max-width: 1300px) {
+            .swiper {
+                height: 250px;
+            }
+
+            .testimonial-card {
+                width: 240px;
+                height: 170px;
+            }
+
+            .testimonial-card img {
+                width: 36px;
+                height: 36px;
+            }
+
+            .testimonial-card h3 {
+                font-size: 16px;
+            }
+
+            .testimonial-card p {
+                font-size: 12px;
+                -webkit-line-clamp: 3; /* Adjusted for smaller screens */
+                line-clamp: 3; /* Adjusted for smaller screens */
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .swiper {
+                height: 230px;
+            }
+
+            .testimonial-card {
+                width: 230px;
+                height: 155px;
+            }
+
+            .testimonial-card img {
+                width: 34px;
+                height: 34px;
+            }
+
+            .testimonial-card h3 {
+                font-size: 15px;
+            }
+
+            .testimonial-card p {
+                font-size: 11px;
+                -webkit-line-clamp: 3; /* Adjusted for smaller screens */
+                line-clamp: 3; /* Adjusted for smaller screens */
+            }
+        }
+
+        @media (max-width: 650px) {
+            .swiper {
+                height: 220px;
+            }
+
+            .testimonial-card {
+                width: 400px;
+                height: 160px;
+            }
+
+            .testimonial-card img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .testimonial-card h3 {
+                font-size: 16px;
+            }
+
+            .testimonial-card p {
+                font-size: 12px;
+                -webkit-line-clamp: 3; /* Adjusted for smaller screens */
+                line-clamp: 3; /* Adjusted for smaller screens */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .swiper {
+                height: 190px;
+            }
+
+            .testimonial-card {
+                width: 400px;
+                height: auto;
+                padding: 10px;
+            }
+
+            .testimonial-card img {
+                width: 28px;
+                height: 28px;
+            }
+
+            .testimonial-card h3 {
+                font-size: 13px;
+            }
+
+            .testimonial-card p {
+                font-size: 9px;
+                -webkit-line-clamp: 2; /* Adjusted for very small screens */
+                line-clamp: 2; /* Adjusted for very small screens */
+            }
+        }
+
+        @media (max-width: 485px) {
+            .swiper {
+                height: 180px;
+            }
+
+            .testimonial-card {
+                width: 300px;
+                height: auto;
+                padding: 10px;
+            }
+
+            .testimonial-card img {
+                width: 26px;
+                height: 26px;
+            }
+
+            .testimonial-card h3 {
+                font-size: 12px;
+            }
+
+            .testimonial-card p {
+                font-size: 8px;
+                -webkit-line-clamp: 2; /* Adjusted for very small screens */
+                line-clamp: 2; /* Adjusted for very small screens */
+            }
+        }
+
+        /* Overlay for the enlarged view */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .enlarged-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow-y: auto;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <!-- Testimonial 1 -->
+        <div class="swiper-slide">
+            <div class="testimonial-card">
+                <img src="profile1.jpg" alt="Nathan Fernandes">
+                <h3>Nathan Fernandes</h3>
+                <div class="stars">★★★★★</div>
+                <p>ASLTextify has been a game-changer for me. The ASL to text feature is incredibly accurate and has made communication so much easier. </p>
+            </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="swiper-slide">
+            <div class="testimonial-card">
+                <img src="profile2.jpg" alt="Sarah Mitchell">
+                <h3>Sarah Mitchell</h3>
+                <div class="stars">★★★★★</div>
+                <p>ASLTextify's text to ASL feature has made my daily interactions so much smoother. It's user-friendly and very reliable.</p>
+            </div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="swiper-slide">
+            <div class="testimonial-card">
+                <img src="profile3.jpg" alt="James Lee">
+                <h3>James Lee</h3>
+                <div class="stars">★★★★★</div>
+                <p>The contact team at ASLTextify is fantastic. They helped me with everything I needed and were very patient and understanding.</p>
+            </div>
+        </div>
+        <!-- Testimonial 4 -->
+        <div class="swiper-slide">
+            <div class="testimonial-card">
+                <img src="profile4.jpg" alt="Maria Gonzalez">
+                <h3>Maria Gonzalez</h3>
+                <div class="stars">★★★★★</div>
+                <p>I love the courses shown here. They're comprehensive and easy to follow. ASLTextify is an invaluable resource for anyone looking to learn ASL.</p>
+            </div>
+        </div>
+        <!-- Testimonial 5 -->
+        <div class="swiper-slide">
+            <div class="testimonial-card">
+                <img src="profile5.jpg" alt="John Doe">
+                <h3>John Doe</h3>
+                <div class="stars">★★★★★</div>
+                <p>Using ASLTextify has greatly improved my communication skills. The platform is user-friendly and extremely efficient.</p>
+            </div>
+        </div>
+        <!-- Testimonial 6 -->
+        <div class="swiper-slide">
+            <div class="testimonial-card">
+                <img src="profile6.jpg" alt="Jane Smith">
+                <h3>Jane Smith</h3>
+                <div class="stars">★★★★★</div>
+                <p>ASLTextify offers an innovative way to bridge communication gaps. Highly recommend it to anyone needing reliable ASL translation.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Navigation buttons -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.mySwiper', {
+        slidesPerView: 4,
+        spaceBetween: 10,
+        loop: true,
+        autoplay: {
+            delay: 5000,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            1920: {
+                slidesPerView: 4,
+                spaceBetween: 10,
+            },
+            1536: {
+                slidesPerView: 4,
+                spaceBetween: 10,
+            },
+            1366: {
+                slidesPerView: 4,
+                spaceBetween: 10,
+            },
+            1300: {
+                slidesPerView: 4,
+                spaceBetween: 10,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 10,
+            },
+            650: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+            },
+            576: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+            },
+            485: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+            },
+            0: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+            },
+        },
+    });
+</script>
+
+<div class="overlay" id="overlay">
+    <div class="enlarged-card" id="enlargedCard"></div>
+</div>
+
+<script>
+    // Get all testimonial cards
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    const overlay = document.getElementById('overlay');
+    const enlargedCard = document.getElementById('enlargedCard');
+
+    // Add click event to each testimonial card
+    testimonialCards.forEach(card => {
+        card.addEventListener('click', () => {
+            enlargedCard.innerHTML = card.innerHTML; // Copy content to enlarged view
+            overlay.style.display = 'flex'; // Show the overlay with enlarged card
+        });
+    });
+
+    // Hide the overlay when clicking outside the enlarged card
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            overlay.style.display = 'none';
+        }
+    });
+</script>
+</body>
+</html>

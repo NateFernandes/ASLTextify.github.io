@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+    <!-- Logo on the top left -->
+    <div class="logo-container">
+        <a href="index.html"><img src="Images/asltextify-black.png" alt="Logo" class="logo"></a>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div class="signup-container">
+        <h2>Create an account</h2>
+        <form>
+            <div class="input-box">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" placeholder="e.g. Shahra Jafar">
+            </div>
+            <div class="input-box">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="e.g. shahrajafar@email.com">
+            </div>
+            <div class="input-box">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your Password">
+                <img src="Images/pass_visibilityoff.svg" alt="Hide" id="togglePassword" onclick="toggleVisibility('password', 'togglePassword')">
+            </div>
+            <div class="input-box">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" placeholder="Confirm your Password">
+                <img src="Images/pass_visibilityoff.svg" alt="Hide" id="toggleConfirmPassword" onclick="toggleVisibility('confirm-password', 'toggleConfirmPassword')">
+            </div>
+
+            <button type="submit" class="signup-btn">Sign Up</button>
+        </form>
+        <p class="signup-text">Already have an account? <a href="signin.html">Log In</a></p>
+    </div>
+
+    <script src="showhide.js"></script>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="slide">
+                <img class="slide-one-img" src="Images/expert-guide.png" alt="Expert Guide">
+                <div class="text text-one">
+                    <h2>Master ASL with Expert Guidance</h2>
+                    <p>Enhance your ASL skills through One-on-One engaging sessions with experienced instructors.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img class="slide-two-img" src="Images/text-asl.png" alt="Text to ASL Conversion">
+                <div class="text text-two">
+                    <h2>Text to ASL Conversion</h2>
+                    <p>Instantly convert written text into American Sign Language.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img class="slide-three-img" src="Images/asl-text.png" alt="ASL to Text Conversion">
+                <div class="text text-three">
+                    <h2>ASL to Text Conversion</h2>
+                    <p>Capture ASL gestures in real-time and convert them to text.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Navigation Lines -->
+        <div class="lines">
+            <span class="line" onclick="moveToSlide(0)"></span>
+            <span class="line" onclick="moveToSlide(1)"></span>
+            <span class="line" onclick="moveToSlide(2)"></span>
+        </div>
+    </div>
+
+    <script src="signslider.js"></script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <hr class="line-left">
+            <div class="social-icons-container"> <!-- New container for social icons -->
+                <div class="social-icon">
+                    <a href="#">
+                        <div class="icon-circle"> <!-- Circular container -->
+                            <img src="Images/facebook-foot.svg" alt="Facebook">
+                        </div>
+                    </a>
+                </div>
+                <div class="social-icon">
+                    <a href="#">
+                        <div class="icon-circle"> <!-- Circular container -->
+                            <img src="Images/instagram-foot.svg" alt="Instagram">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <hr class="line-right">
+        </div>
+
+        <button id="dark-mode-toggle" class="dark-mode-toggle">
+            <img src="Images/dark_mode.svg" alt="Dark Mode Icon">
+        </button>
+        
+        <div class="footer-bottom">
+            <p>Copyright © 2024 Vertex Technologies. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#">Terms of Use</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">User Agreement</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="dark-mode-signup.js"></script>
+    
+</body>
+</html>
