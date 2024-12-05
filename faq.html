@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="CSS/faq.css">
+    <link rel="stylesheet" href="CSS/cookies.css">
+    <title>ASLTextify | FAQs</title>
+    <link rel="icon" type="image/x-icon" href="Images/asltextify-favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="index.html">
+                <img src="Images/asltextify-black.png" alt="ASLTextify Logo">
+            </a>
+        </div>
+        <div class="navbar-center">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="javascript:void(0);">
+                    Translator
+                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                    </svg>
+                </a>
+                <div class="dropdown-content">
+                    <a href="asl-to-text.html">ASL to Text<br><small>Transform real-time ASL gestures to text</small></a>
+                    <a href="text-to-asl.html">Text to ASL<br><small>Convert spoken words into sign language gestures</small></a>
+                </div>
+            </div>
+            <a href="Courses.html">Courses</a>
+            <div class="dropdown">
+                <a href="javascript:void(0);">
+                    More
+                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                    </svg>
+                </a>
+                <div class="dropdown-content more-dropdown">
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-right">
+            {% if logged_in %}
+                <a href="Start-Learning.html" class="signed-in-item">
+                    <img src="Images/help-icon.svg" alt="Help" class="signed-in-icon">
+                </a>
+                <a href="settings.html" class="signed-in-item">
+                    <img src="Images/settings-icon.svg" alt="Settings" class="signed-in-icon">
+                </a>
+                <a href="Personal-Info.html" class="signed-in-item">
+                    <img src="Images/blank-user.png" alt="Personal Info" class="signed-in-profile">
+                </a>
+            {% else %}
+                <span> <a href="signin.html" class="sign-in">Sign In</a></span>
+                <div class="user-icon">
+                    <a href="signin.html" class="sign-in"><img src="Images/add user.svg" alt="User Icon"></a>
+                </div>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="hamburger-icon" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+        <a href="index.html">Home</a>
+        
+        <!-- Translator with dropdown arrow -->
+        <div class="dropdown">
+            <a href="javascript:void(0);" onclick="toggleDropdown(this)">
+                Translator
+                <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                </svg>
+            </a>
+            <div class="dropdown-content">
+                <a href="asl-to-text.html">ASL to Text</a>
+                <a href="text-to-asl.html">Text to ASL</a>
+            </div>
+        </div>
+        
+        <a href="Courses.html">Courses</a>
+        
+        <!-- More with dropdown arrow -->
+        <div class="dropdown">
+            <a href="javascript:void(0);" onclick="toggleDropdown(this)">
+                More
+                <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                </svg>
+            </a>
+            <div class="dropdown-content">
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/navres.js"></script>
+
+    <div class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+        <div class="faq">
+            <div class="faq-item">
+                <button class="faq-question">What is ASLTextify about?</button>
+                <div class="faq-answer">
+                    <p>ASL Textify helps you convert <strong>ASL fingerspelling (letters)</strong> into text and vice versa. We're currently focused on letters, but we're working on supporting full ASL words in the future.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How do I sign up?</button>
+                <div class="faq-answer">
+                    <p>Click on the "Sign Up" button on the homepage, fill in your details, and boom, you're in!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Is it free to use?</button>
+                <div class="faq-answer">
+                    <p>Yes, ASL Textify is completely free. Our 1-on-1 ASL sessions are also free!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Do I need an account to use ASLTextify?</button>
+                <div class="faq-answer">
+                    <p>Yes, you need to <strong>sign up</strong> or <strong>log in</strong> to use the ASL-to-Text and Text-to-ASL conversion features. This ensures your preferences are saved!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Does ASLTextify offer ASL courses?</button>
+                <div class="faq-answer">
+                    <p>No, we don’t provide our own courses. Instead, we offer a <strong>Getting Started Guide</strong> and connect you with reliable external ASL resources.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How do 1-on-1 ASL sessions work?</button>
+                <div class="faq-answer">
+                    <p>Book a free session with an ASL expert through the <strong>"Book a Session"</strong> page. Scheduling is done via Calendly, and our experts will personally guide you!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I use ASLTextify for full ASL words?</button>
+                <div class="faq-answer">
+                    <p>Not yet. Right now, it’s limited to fingerspelling, but full ASL word recognition is on our roadmap!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How does ASLTextify process live ASL?</button>
+                <div class="faq-answer">
+                    <p>We use advanced AI and image recognition to interpret live ASL fingerspelling gestures and convert them into text in real-time.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Is ASLTextify mobile-friendly?</button>
+                <div class="faq-answer">
+                    <p>Yes! ASLTextify is mobile-friendly and works smoothly on both phones and tablets.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What browsers are supported?</button>
+                <div class="faq-answer">
+                    <p>ASLTextify works on all major browsers like Chrome, Firefox, Safari, and Edge. Keep your browser updated for the best experience.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I request new features?</button>
+                <div class="faq-answer">
+                    <p>Absolutely! We’d love to hear your feedback. Use the <strong>Contact Us</strong> form to suggest new features or improvements. 
+                        There’s also a link to the feedback form provided, which can be used to visit the ASLTextify Google Reviews page and paste your typed feedback there!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Is there a guide to using ASLTextify?</button>
+                <div class="faq-answer">
+                    <p>Yes, we have a <strong>Getting Started Guide</strong> that walks you through how to use ASLTextify effectively.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="JS/faq.js"></script>
+
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <p>We use cookies to enhance your browsing experience and provide personalized content. By clicking "Accept Cookies" or managing preferences, you consent to our cookies.</p>
+            <div class="cookie-buttons">
+                <button id="acceptCookies" class="cookie-button accept">Accept Cookies</button>
+                <button id="manageCookies" class="cookie-button manage">Manage Cookies</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="cookie-modal" class="cookie-modal">
+        <div class="cookie-modal-content">
+            <span id="close-modal">&times;</span>
+            <h2>Cookie Preferences</h2>
+            <p>Choose which cookies to allow:</p>
+            
+            <div class="cookie-toggle">
+                <span>Essential Cookies</span>
+                <label class="switch">
+                    <input type="checkbox" id="essential-cookies" disabled checked>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            
+            <div class="cookie-toggle">
+                <span>Analytics Cookies</span>
+                <label class="switch">
+                    <input type="checkbox" id="analytics-cookies">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            
+            <div class="cookie-toggle">
+                <span>Marketing Cookies</span>
+                <label class="switch">
+                    <input type="checkbox" id="marketing-cookies">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+    
+            <div class="modal-buttons">
+                <button id="accept-all" onclick="acceptAllCookies()">Accept All</button>
+                <div class="secondary-buttons">
+                    <button id="save-preferences" onclick="saveCookiePreferences()">Save Preferences</button>
+                    <button id="dismiss-modal">Dismiss</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="JS/cookie-preferences.js"></script>
+    
+    <footer>
+        <!-- Top Center Logo -->
+        <div class="footer-logo">
+            <img src="Images/asltextify-white.png" alt="ASL Texify Logo">
+        </div>
+    
+        {% if not logged_in %}
+        <!-- Half-in, Half-out Fixed Container -->
+        <div class="cta-container">
+            <p>Start your Journey with ASL Today!</p>
+            <div class="cta-buttons">
+                <button class="signup" onclick="window.location.href='signup.html'">Sign Up</button>
+                <button class="signin" onclick="window.location.href='signin.html'">Sign In</button>
+            </div>
+        </div>
+        {% endif %}
+    
+        <!-- Footer Columns -->
+        <div class="footer-columns">
+            <div class="column explore">
+                <h3>Explore</h3>
+                <a href="index.html">Home</a>
+                <a href="Courses.html">Courses</a>
+                <a href="Start-Learning.html">Start Learning</a>
+                <a href="book-session.html">Book a Session</a>
+            </div>
+            <div class="column resources">
+                <h3>Resources</h3>
+                <a href="asl-to-text.html">ASL to Text</a>
+                <a href="text-to-asl.html">Text to ASL</a>
+                <a href="feedback.html">Feedback</a>
+                <a href="Settings.html">Settings</a>
+            </div>
+            <div class="column company">
+                <h3>Company</h3>
+                <a href="about.html">About Us</a>
+                <a href="faq.html">FAQ</a>
+                <a href="about.html#testimonials">Testimonials</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="column legal">
+                <h3>Legal</h3>
+                <a href="terms-of-use.html">Terms</a>
+                <a href="Privacy-Policy.html">Privacy</a>
+                <a href="#">Cookies</a>
+            </div>
+            <div class="column follow-us">
+                <h3>Follow Us!</h3>
+                <a href="https://www.facebook.com/people/ASLTextify/61567868781374/"><img src="Images/facebook-main.svg" alt="Facebook"></a>
+                <a href="https://www.instagram.com/asltextify/"><img src="Images/instagram-main.svg" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/asltextify/"><img src="Images/linkedin-main.svg" alt="LinkedIn"></a>
+            </div>
+        </div>
+    
+        <hr>
+    
+        <!-- Bottom Section -->
+        <div class="footer-bottom">
+            <div class="language">
+                <button>English ▼</button>
+                <!-- Modal for Language Selection -->
+                <div class="language-modal">
+                    <a href="#" data-lang="en">English</a>
+                    <a href="#" data-lang="fr">Français</a>
+                    <a href="#" data-lang="es">Español</a>
+                    <a href="#" data-lang="ar">العربية</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © 2024 Vertex Technologies. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="JS/language-foot.js"></script>
+
+</body>
+</html>

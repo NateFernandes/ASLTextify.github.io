@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Sent</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/email-sent.css">
+    <link rel="icon" type="image/x-icon" href="Images/asltextify-favicon.ico">
+</head>
+<body>
+
+    <!-- Logo on the top left -->
+    <div class="logo-container">
+        <a href="index.html"><img src="Images/asltextify-white.png" alt="Logo" class="logo"></a>
+    </div>
+
+    <!-- Email Sent Content -->
+    <div class="email-sent-container">
+        <!-- Elliptical GIF -->
+        <div class="gif-container">
+            <img src="Images/email-sent.gif" alt="Email Sent" class="email-gif">
+        </div>
+
+        <!-- Message -->
+        <h1 class="email-message">Email Sent Successfully! 📧</h1>
+        <p class="email-subtext">
+            We've sent a password reset email to <span class="email-address">{{email}}</span>. <br>
+            Please check your inbox (or spam mail) for further instructions.
+        </p>
+
+        <!-- Actions -->
+        <div class="action-buttons">
+            <a href="signin.html" class="back-to-login">Back to Login</a>
+        </div>
+    </div>
+    
+</body>
+</html>

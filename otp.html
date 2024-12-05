@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/otp.css" />
+    <link rel="stylesheet" href="CSS/asl-to-text-capture.css">
+    <title>ASLTextify | OTP Verification</title>
+    <link rel="icon" type="image/x-icon" href="asltextify-favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="CSS/review.css">
+</head>
+<body>
+
+    <div class="flash-container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash-message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    
+    <div class="logo-container">
+        <a href="index.html"><img src="Images/asltextify-black.png" alt="Logo" class="logo"></a>
+    </div>
+
+    <!-- OTP Verification Form -->
+    <div class="otp-card" id="otpForm">
+        <h1>OTP Verification</h1>
+        <p id="otpMessage">Code has been sent to your entered email address</p>
+        <form method="POST" action="/otp.html" id="otpForm">
+            <div class="otp-card-inputs">
+                <input type="text" maxlength="1" name="otp_digit" required autofocus>
+                <input type="text" maxlength="1" name="otp_digit" required>
+                <input type="text" maxlength="1" name="otp_digit" required>
+                <input type="text" maxlength="1" name="otp_digit" required>
+                <input type="text" maxlength="1" name="otp_digit" required>
+                <input type="text" maxlength="1" name="otp_digit" required>
+            </div>
+            <input type="hidden" id="otp" name="otp">
+            <button type="submit">Verify</button>
+        </form>
+
+        {% if session['otp_action'] == 'signup' %}
+            <p>Go back to <a href="signup.html">Sign Up</a></p>
+        {% elif session['otp_action'] == 'signin' %}
+            <p>Go back to <a href="signin.html">Sign In</a></p>
+        {% else %}
+            <p>Go back to <a href="/">Home</a></p>
+        {% endif %}
+        
+    </div>
+
+    <button id="dark-mode-toggle" class="dark-mode-toggle">
+        <img src="Images/dark_mode.svg" alt="Dark Mode Icon">
+    </button>
+
+    <script src="JS/otp.js"></script>
+    <script src="JS/dark-mode-signup.js"></script>
+    <script>
+        // Combine OTP digits into a single input value
+        const otpInputs = document.querySelectorAll('input[name="otp_digit"]');
+        const otpHiddenInput = document.getElementById('otp');
+
+        otpInputs.forEach((input, index) => {
+            input.addEventListener('input', () => {
+                if (input.value.length > 0 && index < otpInputs.length - 1) {
+                    otpInputs[index + 1].focus();
+                }
+                // Combine the values
+                otpHiddenInput.value = Array.from(otpInputs).map(i => i.value).join('');
+            });
+        });
+    </script>
+</body>
+</html>

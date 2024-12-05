@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/signup.css">
+    <link rel="stylesheet" href="CSS/cookies.css">
+    <link rel="icon" type="image/x-icon" href="Images/asltextify-favicon.ico">
+</head>
+<body>
+
+    <div class="flash-container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash-message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Logo on the top left -->
+    <div class="logo-container">
+        <a href="index.html"><img src="Images/asltextify-black.png" alt="Logo" class="logo"></a>
+    </div>
+
+    <!-- Sign In / Forgot Password Form Container -->
+    <div class="form-container">
+        <!-- Sign In Form -->
+        <div class="signup-container" id="signin-section">
+            <h2>Welcome Back!</h2>
+            <form action="/signin.html" method="POST">
+                <input type="hidden" name="action" value="signin">
+                <div class="input-box">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="e.g. shahrajafar@email.com" required>
+                </div>
+                <div class="input-box">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+                    <img src="Images/pass_visibilityoff.svg" alt="Hide" id="togglePassword" onclick="toggleVisibility('password', 'togglePassword')">
+                    <a href="#" class="forgot-password" id="forgot-password-link">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="signup-btn">Sign In</button>
+            </form>
+            <p class="signup-text">Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+
+        <!-- Forgot Password Form -->
+        <div class="signup-container hidden" id="forgot-password-section">
+            <h2>Forgot Password</h2>
+            <form action="/signin.html" method="POST">
+                <input type="hidden" name="action" value="forgot-password">
+                <div class="input-box">
+                    <label for="reset-email">Email</label>
+                    <input type="email" id="reset-email" name="email" placeholder="Your registered email address" required>
+                </div>
+
+                <div class="actions">
+                    <p class="back-to-signin signup-text" id="back-to-signin-link">Remember your Password? Back to <a href="signup.html">Sign In</a></p>
+                    <button type="submit" class="signup-btn forgot-btn">Continue</button><br>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="JS/showhide.js"></script>
+    <script src="JS/forgot-password.js"></script>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="slide">
+                <img class="slide-one-img" src="Images/expert-guide.png" alt="Expert Guide">
+                <div class="text text-one">
+                    <h2>Master ASL with Expert Guidance</h2>
+                    <p>Enhance your ASL skills through One-on-One engaging sessions with experienced instructors.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img class="slide-two-img" src="Images/text-asl.png" alt="Text to ASL Conversion">
+                <div class="text text-two">
+                    <h2>Text to ASL Conversion</h2>
+                    <p>Instantly convert written text into American Sign Language.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img class="slide-three-img" src="Images/asl-text.png" alt="ASL to Text Conversion">
+                <div class="text text-three">
+                    <h2>ASL to Text Conversion</h2>
+                    <p>Capture ASL gestures in real-time and convert them to text.</p>
+                </div>
+            </div>
+        </div>
+        <div class="lines">
+            <span class="line" onclick="moveToSlide(0)"></span>
+            <span class="line" onclick="moveToSlide(1)"></span>
+            <span class="line" onclick="moveToSlide(2)"></span>
+        </div>
+    </div>
+
+    <script src="JS/signslider.js"></script>
+
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <p>We use cookies to enhance your browsing experience and provide personalized content. By clicking "Accept Cookies" or managing preferences, you consent to our cookies.</p>
+            <div class="cookie-buttons">
+                <button id="acceptCookies" class="cookie-button accept">Accept Cookies</button>
+                <button id="manageCookies" class="cookie-button manage">Manage Cookies</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookie-modal" class="cookie-modal">
+        <div class="cookie-modal-content">
+            <span id="close-modal">&times;</span>
+            <h2>Cookie Preferences</h2>
+            <p>Choose which cookies to allow:</p>
+            
+            <div class="cookie-toggle">
+                <span>Essential Cookies</span>
+                <label class="switch">
+                    <input type="checkbox" id="essential-cookies" disabled checked>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            
+            <div class="cookie-toggle">
+                <span>Analytics Cookies</span>
+                <label class="switch">
+                    <input type="checkbox" id="analytics-cookies">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            
+            <div class="cookie-toggle">
+                <span>Marketing Cookies</span>
+                <label class="switch">
+                    <input type="checkbox" id="marketing-cookies">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+    
+            <div class="modal-buttons">
+                <button id="accept-all" onclick="acceptAllCookies()">Accept All</button>
+                <div class="secondary-buttons">
+                    <button id="save-preferences" onclick="saveCookiePreferences()">Save Preferences</button>
+                    <button id="dismiss-modal">Dismiss</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="JS/cookie-preferences.js"></script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <hr class="line-left">
+            <div class="social-icons-container">
+                <div class="social-icon">
+                    <a href="#">
+                        <div class="icon-circle">
+                            <img src="Images/facebook-foot.svg" alt="Facebook">
+                        </div>
+                    </a>
+                </div>
+                <div class="social-icon">
+                    <a href="#">
+                        <div class="icon-circle">
+                            <img src="Images/instagram-foot.svg" alt="Instagram">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <hr class="line-right">
+        </div>
+
+        <button id="dark-mode-toggle" class="dark-mode-toggle">
+            <img src="Images/dark_mode.svg" alt="Dark Mode Icon">
+        </button>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2024 Vertex Technologies. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="terms-of-use.html">Terms of Use</a>
+                <a href="Privacy-Policy.html">Privacy Policy</a>
+                <a href="#">Cookie Preferences</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="JS/dark-mode-signup.js"></script>
+    
+</body>
+</html>

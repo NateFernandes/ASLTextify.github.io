@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/global.css" />
+    <link rel="stylesheet" href="CSS/asl-to-text-capture.css">
+    <title>ASLTextify | Text-to-ASL</title>
+    <link rel="icon" type="image/x-icon" href="asltextify-favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="CSS/review.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="index.html">
+                <img src="images/asltextify-black.png" alt="ASLTextify Logo">
+            </a>
+        </div>
+        <div class="navbar-center">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="javascript:void(0);" class="active"> 
+                    Translator
+                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                    </svg>
+                </a>
+                <div class="dropdown-content">
+                    <a href="asl-to-text.html">ASL to Text<br><small>Transform real-time ASL gestures to text</small></a>
+                    <a href="text-to-asl.html" class="active">Text to ASL<br><small>Convert spoken words into sign language gestures</small></a>
+                </div>
+            </div>
+            <a href="Courses.html">Courses</a>
+            <div class="dropdown">
+                <a href="javascript:void(0);">
+                    More
+                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                    </svg>
+                </a>
+                <div class="dropdown-content more-dropdown">
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-right">
+            {% if logged_in %}
+                <a href="Start-Learning.html" style="text-decoration:none; display: flex; align-items: center;">
+                <img src="Images/help-icon.svg" alt="Help" style="width: 20px; height: 20px; margin-right: 10px;">
+                </a>
+                <a href="settings.html" style="text-decoration:none; display: flex; align-items: center;">
+                <img src="Images/settings-icon.svg" alt="Settings" style="width: 20px; height: 20px; margin-right: 10px;">
+                </a>
+                <a href="Personal-Info.html" style="text-decoration:none; display: flex; align-items: center;">
+                <img src="Images/blank-user.png" alt="Personal-Info" style="width: 33px; height: 33px; margin-right: 10px;">
+                </a>
+            {% else %}
+                <span> <a href="signin.html" class="sign-in">Sign In</a></span>
+                <div class="user-icon">
+                    <a href="signin.html" class="sign-in"><img src="Images/add user.svg" alt="User Icon"></a>
+                </div>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="hamburger-icon" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+        <a href="index.html">Home</a>
+        
+        <!-- Translator with dropdown arrow -->
+        <div class="dropdown">
+            <a href="javascript:void(0);" onclick="toggleDropdown(this)">
+                Translator
+                <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                </svg>
+            </a>
+            <div class="dropdown-content">
+                <a href="asl-to-text.html">ASL to Text</a>
+                <a href="text-to-asl.html">Text to ASL</a>
+            </div>
+        </div>
+        
+        <a href="Courses.html">Courses</a>
+        
+        <!-- More with dropdown arrow -->
+        <div class="dropdown">
+            <a href="javascript:void(0);" onclick="toggleDropdown(this)">
+                More
+                <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                </svg>
+            </a>
+            <div class="dropdown-content">
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="asl-to-text-section">
+        <h2 class="asl-to-text-title">ASL to Text</h2>
+        
+        <div class="asl-content">
+            <div class="asl-video-container">
+                <img src="images/man-signs.png" alt="Person demonstrating ASL" class="asl-video">
+            </div>
+    
+            <div id="asl-signs-display" class="asl-signs-display" style="display: none;">
+                <img src="images/asl-signs-chart.png" alt="ASL Signs Chart" class="asl-signs-image">
+            </div>
+        </div>
+    
+        <button class="capture-asl-button">Capture ASL</button>
+        <button id="show-asl-signs-button" class="show-asl-signs-button">Show ASL Signs</button>
+
+        <div class="asl-translation-output">
+            <p>Character: A</p>
+            <p>Word: A</p>
+            <p>Sentences: A</p>
+        </div>
+
+        
+    </div>
+
+    <button id="dark-mode-toggle" class="dark-mode-toggle">
+        <img src="Images/dark_mode.svg" alt="Dark Mode Icon">
+    </button>
+    
+    <script src="js/navres.js"></script>
+    <script src="js/dark-mode.js"></script>
+    <script src="js/asl-to-text-capture.js"></script>
+</body>
+</html>

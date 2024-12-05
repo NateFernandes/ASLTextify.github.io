@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/global.css" />
+    <link rel="stylesheet" href="CSS/courses.css">
+    <link rel="stylesheet" href="CSS/cookies.css">
+    <title>ASLTextify | Courses</title>
+    <link rel="icon" type="image/x-icon" href="Images/asltextify-favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="index.html">
+                <img src="Images/asltextify-black.png" alt="ASLTextify Logo">
+            </a>
+        </div>
+        <div class="navbar-center">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="javascript:void(0);">
+                    Translator
+                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                    </svg>
+                </a>
+                <div class="dropdown-content">
+                    <a href="asl-to-text.html">ASL to Text<br><small>Transform real-time ASL gestures to text</small></a>
+                    <a href="text-to-asl.html">Text to ASL<br><small>Convert spoken words into sign language gestures</small></a>
+                </div>
+            </div>
+            <a href="Courses.html" class="active">Courses</a>
+            <div class="dropdown">
+                <a href="javascript:void(0);">
+                    More
+                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                    </svg>
+                </a>
+                <div class="dropdown-content more-dropdown">
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-right">
+            {% if logged_in %}
+                <a href="Start-Learning.html" class="signed-in-item">
+                    <img src="Images/help-icon.svg" alt="Help" class="signed-in-icon">
+                </a>
+                <a href="settings.html" class="signed-in-item">
+                    <img src="Images/settings-icon.svg" alt="Settings" class="signed-in-icon">
+                </a>
+                <a href="Personal-Info.html" class="signed-in-item">
+                    <img src="Images/blank-user.png" alt="Personal Info" class="signed-in-profile">
+                </a>
+            {% else %}
+                <span> <a href="signin.html" class="sign-in">Sign In</a></span>
+                <div class="user-icon">
+                    <a href="signin.html" class="sign-in"><img src="Images/add user.svg" alt="User Icon"></a>
+                </div>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="hamburger-icon" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+        <a href="index.html">Home</a>
+        
+        <!-- Translator with dropdown arrow -->
+        <div class="dropdown">
+            <a href="javascript:void(0);" onclick="toggleDropdown(this)">
+                Translator
+                <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                </svg>
+            </a>
+            <div class="dropdown-content">
+                <a href="asl-to-text.html">ASL to Text</a>
+                <a href="text-to-asl.html">Text to ASL</a>
+            </div>
+        </div>
+        
+        <a href="Courses.html">Courses</a>
+        
+        <!-- More with dropdown arrow -->
+        <div class="dropdown">
+            <a href="javascript:void(0);" onclick="toggleDropdown(this)">
+                More
+                <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M1.5 5.5L8 12l6.5-6.5L14 5 8 11 2 5l-.5-.5z"/>
+                </svg>
+            </a>
+            <div class="dropdown-content">
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/navres.js"></script>
+
+    <h1 class="courses-title">Courses</h1>
+
+    <div class="courses-container">
+        <div class="main-rectangle">
+            <h2 class="rectangle-title">ASL Courses by ASLTextify</h2>
+            <div class="image-boxes">
+                <div class="image-box">
+                    <img src="Images/start-learning.png" alt="Start Learning">
+                    <a href="Start-Learning.html" class="box-btn">Start Learning</a>
+                </div>
+                <div class="image-box">
+                    <img src="Images/book-session.png" alt="Book Session">
+                    <a href="book-session.html" class="box-btn">Book a Session</a>
+                </div>
+            </div>
+            <div class="box-content">
+                <div class="box-info">
+                    <h3 class="box-heading">Getting Started with ASLTextify</h3>
+                    <p class="box-text">
+                        Learn how to navigate and utilize all the features of ASLTextify to maximize your experience. This guide 
+                        will help you understand the basics and get the most out of our ASL translation services.
+                    </p>
+                </div>
+            
+                <div class="box-info">
+                    <h3 class="box-heading">One-on-One Session with an ASL Expert</h3>
+                    <p class="box-text">
+                        Book a personalized session with an ASL expert to learn proper sign language techniques and enhance your skills. 
+                        Perfect for beginners and advanced learners alike.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="courses-container">
+        <div class="main-rectangle">
+            <h2 class="rectangle-title">External ASL Courses and Videos</h2>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="external-image-box">
+                            <img src="Images/basic-asl-vid.png" alt="External Course 1">
+                            <a href="#external-course1" class="box-btn" onclick="openModal('https://www.youtube.com/embed/Raa0vBXA8OQ?si=a5QcQQCv6kHUxsXz')">Watch Video</a>
+                        </div>
+                        <div class="ext-box-info">
+                            <h3 class="box-heading">Basic ASL for Beginners</h3>
+                            <p class="box-text">
+                                A comprehensive introduction to American Sign Language, covering basic signs and phrases to get you started.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="external-image-box">
+                            <img src="Images/startasl-website.png" alt="External Course 2">
+                            <a href="https://www.startasl.com" class="box-btn" target="_blank" rel="noopener noreferrer">Go to Website</a>
+                        </div>
+                        <div class="ext-box-info">
+                            <h3 class="box-heading">StartASL</h3>
+                            <p class="box-text">
+                                An excellent resource for learning ASL through various online courses, lessons, and resources.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="external-image-box">
+                            <img src="Images/advance-asl-vid.png" alt="External Course 3">
+                            <a href="#external-course3" class="box-btn" onclick="openModal('https://www.youtube.com/embed/MynzxdkfxfE?si=NEQOhpuL5sLorisa')">Watch Video</a>
+                        </div>
+                        <div class="ext-box-info">
+                            <h3 class="box-heading">Advanced ASL Techniques</h3>
+                            <p class="box-text">
+                                An in-depth look at advanced ASL techniques for those looking to improve their signing skills.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="external-image-box">
+                            <img src="Images/signschool-website.png" alt="External Course 1">
+                            <a href="https://www.signschool.com" class="box-btn" target="_blank" rel="noopener noreferrer">Go to Website</a>
+                        </div>
+                        <div class="ext-box-info">
+                            <h3 class="box-heading">SignSchool</h3>
+                            <p class="box-text">
+                                A free, interactive platform for learning ASL, featuring video lessons and quizzes for all skill levels.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="external-image-box">
+                            <img src="Images/handspeak-website.jpg" alt="External Course 2">
+                            <a href="https://www.handspeak.com" class="box-btn" target="_blank" rel="noopener noreferrer">Go to Website</a>
+                        </div>
+                        <div class="ext-box-info">
+                            <h3 class="box-heading">HandSpeak</h3>
+                            <p class="box-text">
+                                A resource for ASL dictionaries and educational materials, focusing on vocabulary, grammar, and cultural insights.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="external-image-box">
+                            <img src="Images/gallaudet-website.png" alt="External Course 3">
+                            <a href="https://gallaudet.edu/asl-connect/" class="box-btn" target="_blank" rel="noopener noreferrer">Go to Course</a>
+                        </div>
+                        <div class="ext-box-info">
+                            <h3 class="box-heading">Gallaudet University</h3>
+                            <p class="box-text">
+                                Offers a bunch of ASL courses online, starting from the basics (ASL 1) to more advanced levels.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="external-image-box">
+                            <img src="Images/purdue-website.jpg" alt="External Course 3">
+                            <a href="https://cla.purdue.edu/academic/slc/l/asl/online.html" class="box-btn" target="_blank" rel="noopener noreferrer">Go to Course</a>
+                        </div>
+                        <div class="ext-box-info">
+                            <h3 class="box-heading">Purdue University</h3>
+                            <p class="box-text">
+                                Has a comprehensive online ASL program too, with ASL 1 and 2 available which focus on interactive learning and cultural immersion, making it easier to understand the Deaf community.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="external-image-box">
+                            <img src="Images/udemy-website.png" alt="External Course 3">
+                            <a href="https://www.udemy.com/topic/american-sign-language/" class="box-btn" target="_blank" rel="noopener noreferrer">Go to Course</a>
+                        </div>
+                        <div class="ext-box-info">
+                            <h3 class="box-heading">Udemy</h3>
+                            <p class="box-text">
+                                They have various courses that range in price and content, so you can pick what fits your style.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-next">
+                    <img src="Images/course-right-arrow.svg" alt="Next">
+                </div>
+                <div class="swiper-button-prev">
+                    <img src="Images/course-left-arrow.svg" alt="Prev">
+                </div>
+            </div>
+        </div>
+    
+        <!-- Video Modal (inside the courses-container) -->
+        <div id="videoModal" class="modal" onclick="closeModal()">
+            <div class="modal-content" onclick="event.stopPropagation();">
+                <iframe id="videoFrame" src="" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/youtube-player.js"></script>
+
+    <button id="dark-mode-toggle" class="dark-mode-toggle">
+        <img src="Images/dark_mode.svg" alt="Dark Mode Icon">
+    </button>
+
+    <script src="JS/dark-mode.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="JS/course-swiper.js"></script>
+
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <p>We use cookies to enhance your browsing experience and provide personalized content. By clicking "Accept Cookies" or managing preferences, you consent to our cookies.</p>
+            <div class="cookie-buttons">
+                <button id="acceptCookies" class="cookie-button accept">Accept Cookies</button>
+                <button id="manageCookies" class="cookie-button manage">Manage Cookies</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="cookie-modal" class="cookie-modal">
+        <div class="cookie-modal-content">
+            <span id="close-modal">&times;</span>
+            <h2>Cookie Preferences</h2>
+            <p>Choose which cookies to allow:</p>
+            
+            <div class="cookie-toggle">
+                <span>Essential Cookies</span>
+                <label class="switch">
+                    <input type="checkbox" id="essential-cookies" disabled checked>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            
+            <div class="cookie-toggle">
+                <span>Analytics Cookies</span>
+                <label class="switch">
+                    <input type="checkbox" id="analytics-cookies">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            
+            <div class="cookie-toggle">
+                <span>Marketing Cookies</span>
+                <label class="switch">
+                    <input type="checkbox" id="marketing-cookies">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+    
+            <div class="modal-buttons">
+                <button id="accept-all" onclick="acceptAllCookies()">Accept All</button>
+                <div class="secondary-buttons">
+                    <button id="save-preferences" onclick="saveCookiePreferences()">Save Preferences</button>
+                    <button id="dismiss-modal">Dismiss</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="JS/cookie-preferences.js"></script>
+    
+    <footer>
+        <!-- Top Center Logo -->
+        <div class="footer-logo">
+            <img src="Images/asltextify-white.png" alt="ASL Texify Logo">
+        </div>
+    
+        {% if not logged_in %}
+        <!-- Half-in, Half-out Fixed Container -->
+        <div class="cta-container">
+            <p>Start your Journey with ASL Today!</p>
+            <div class="cta-buttons">
+                <button class="signup" onclick="window.location.href='signup.html'">Sign Up</button>
+                <button class="signin" onclick="window.location.href='signin.html'">Sign In</button>
+            </div>
+        </div>
+        {% endif %}
+    
+        <!-- Footer Columns -->
+        <div class="footer-columns">
+            <div class="column explore">
+                <h3>Explore</h3>
+                <a href="index.html">Home</a>
+                <a href="Courses.html">Courses</a>
+                <a href="Start-Learning.html">Start Learning</a>
+                <a href="book-session.html">Book a Session</a>
+            </div>
+            <div class="column resources">
+                <h3>Resources</h3>
+                <a href="asl-to-text.html">ASL to Text</a>
+                <a href="text-to-asl.html">Text to ASL</a>
+                <a href="feedback.html">Feedback</a>
+                <a href="Settings.html">Settings</a>
+            </div>
+            <div class="column company">
+                <h3>Company</h3>
+                <a href="about.html">About Us</a>
+                <a href="faq.html">FAQ</a>
+                <a href="about.html#testimonials">Testimonials</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="column legal">
+                <h3>Legal</h3>
+                <a href="terms-of-use.html">Terms</a>
+                <a href="Privacy-Policy.html">Privacy</a>
+                <a href="#">Cookies</a>
+            </div>
+            <div class="column follow-us">
+                <h3>Follow Us!</h3>
+                <a href="https://www.facebook.com/people/ASLTextify/61567868781374/"><img src="Images/facebook-main.svg" alt="Facebook"></a>
+                <a href="https://www.instagram.com/asltextify/"><img src="Images/instagram-main.svg" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/asltextify/"><img src="Images/linkedin-main.svg" alt="LinkedIn"></a>
+            </div>
+        </div>
+    
+        <hr>
+    
+        <!-- Bottom Section -->
+        <div class="footer-bottom">
+            <div class="language">
+                <button>English ▼</button>
+                <!-- Modal for Language Selection -->
+                <div class="language-modal">
+                    <a href="#" data-lang="en">English</a>
+                    <a href="#" data-lang="fr">Français</a>
+                    <a href="#" data-lang="es">Español</a>
+                    <a href="#" data-lang="ar">العربية</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © 2024 Vertex Technologies. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="JS/language-foot.js"></script>
+
+</body>
+</html>
