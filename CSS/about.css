@@ -1,0 +1,221 @@
+/* About Us page style */
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* About Us Section */
+.about-us {
+    padding: 20px;
+    background-color: #caf0f8; /* Light blue background */
+    text-align: center;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-us h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.about-us p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.about-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+}
+
+/* Initial hidden state for all cards */
+.card {
+    opacity: 0;
+    transform: translateY(70px); /* Start 50px down */
+    transition: opacity 1.8s ease-out, transform 1.8s ease-out;
+}
+
+/* Final state when the card becomes visible */
+.card.show {
+    opacity: 1;
+    transform: translateY(0); /* Slide into place */
+}
+
+/* Apply transition delay for staggered effect on desktop */
+@media (min-width: 768px) {
+    .card {
+        transition: opacity 3s ease-out, transform 2s ease-out;
+    }
+}
+
+/* Mobile specific transition, no animation until scroll */
+@media (max-width: 767px) {
+    .card {
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    box-shadow: 1.5rem 14px 28px rgba(0, 0, 0, 0.15), /* Slightly deeper shadow */
+                1.5rem 10px 10px rgba(0, 0, 0, 0.1);  /* Softer shadow for depth */
+    transform: translateY(-5px);
+}
+
+
+.card img {
+    width: 60px;
+    margin-bottom: -10px;
+    scale: 1.2;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #005f91;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        margin-bottom: -20px;
+        width: 90%; /* Adjust card width for smaller screens */
+    }
+
+    .about-us h2 {
+        font-size: 2rem;
+    }
+
+    .about-us p {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+/* Styles for the dark mode toggle button */
+.dark-mode-toggle {
+    position: fixed;
+    margin-bottom: 15px;
+    z-index: 1000;
+    bottom: 20px;
+    right: 20px;
+    background-color: #000000;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle img {
+    width: 30px;
+    height: 25px;
+}
+
+.dark-mode-toggle:hover {
+    background-color: #005f99;
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: #1a1a1a;
+    color: #f1f1f1;
+}
+
+.dark-mode .navbar {
+    background-color: #000000;
+}
+
+.dark-mode .navbar-center a{
+    color: #ffffff;
+}
+
+.dark-mode .dropdown .dropdown-content{
+    background-color: #1E1E1E;
+}
+
+.dark-mode .dropdown-content a:hover {
+    background-color: #000000;
+}
+
+.dark-mode .dropdown-content a {
+    color: #0094FF;
+}
+
+.dark-mode .dropdown-content small {
+    color: #ffffff;
+}
+
+.dark-mode .contact-container {
+    background-color: #1E1E1E;
+}
+
+.dark-mode .contact-container h3{
+    color: #ffffff;
+}
+
+.dark-mode .about-us{
+    background-color: #1E1E1E;
+}
+
+.dark-mode h2{
+    color: #0094FF;
+}
+
+.dark-mode .about-container p{
+    color: #ffffff;
+}
+
+.dark-mode .card{
+    background-color: #d9d9d9;
+}
+
+.dark-mode .about-cards p{
+    color: black;
+}
+
+.dark-mode .testimonials-section h3{
+    color: rgb(255, 255, 255);
+}
+
+
+.dark-mode .card:hover {
+    box-shadow: 1.5rem 14px 28px rgba(255, 255, 255, 0.15), /* Slightly deeper shadow */
+                1.5rem 10px 10px rgba(255, 255, 255, 0.1);  /* Softer shadow for depth */
+    transform: translateY(-5px);
+}
+
+.dark-mode .dark-mode-toggle {
+    background: linear-gradient(270deg, #005f99, #590099);
+}
+

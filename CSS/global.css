@@ -1,0 +1,821 @@
+/* Flash Message Container */
+.flash-container {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Ensure it appears above all other elements */
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    pointer-events: none; /* Prevent interference with other elements */
+}
+
+.flash-message {
+    background-color: #565656; /* Light red background for error messages */
+    color: #ffffff; /* Dark red text */
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    animation: fadeOut 3s ease forwards; /* Auto-hide animation */
+}
+
+/* Flash Message Fade-Out Animation */
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    90% { opacity: 1; } /* Stay visible until 90% of the animation duration */
+    100% { opacity: 0; transform: translateY(-5px); } /* Fade out and slide up */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #caf0f8;
+}
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Logo and Title */
+.navbar-left img {
+    height: 50px; /* Adjust size as needed */
+}
+
+/* Centered Navbar links */
+.navbar-center {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.navbar-center a {
+    margin: 0 28px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    position: relative;
+}
+
+.navbar-center a::before {
+    content: '';
+    position: absolute;
+    left: -28px; /* Adjust this to control the extra hover space */
+    right: -28px; /* Adjust this to control the extra hover space */
+    top: -30px;
+    bottom: -30px;
+    background: transparent;
+    z-index: 0; /* Ensure it's behind the text */
+}
+
+.navbar-center .dropdown a::before {
+    bottom: 0px;
+}
+
+.navbar-center .dropdown-content a::before {
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+
+.navbar-center a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px; /* Thickness of the underline */
+    background: #0094FF; /* Dodger Blue */
+    position: absolute;
+    bottom: -27px; /* Position of the underline */
+    left: 50%; /* Start at the center */
+    transition: width 0.3s ease, left 0.3s ease; /* Add transition for smooth movement */
+}
+
+.navbar-center a:hover::after,
+.navbar-center a.active::after { /* Apply the underline effect on hover and active page */
+    width: 100%; /* Full width of the link */
+    left: 0; /* Move the underline to the start of the link */
+}
+
+/* Dropdown menu */
+.navbar-center .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.navbar-center .dropdown a {
+    padding-bottom: 30px; /* Increase the padding at the bottom */
+}
+
+.navbar-center .dropdown > a::after {
+    bottom: 2px; /* Adjust the underline closer to the text for dropdown tabs */
+}
+
+.navbar-center .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    min-width: 220px;
+    border-radius: 8px; /* Rounded corners */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    top: 50px;
+}
+
+.navbar-center .more-dropdown {
+    min-width: 150px; /* Smaller width for "More" dropdown */
+}
+
+
+
+.navbar-center .dropdown-content a {
+    color: #0094FF;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 8px; /* Rounded corners for options */
+    font-weight: 550;
+    font-size: 15px;
+    white-space: nowrap;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.navbar-center .dropdown-content small {
+    color: #848484; /* Grey color for the small text */
+    font-size: 10px; /* Small text size */
+    font-weight: 500;
+    display: block; /* Ensures it stays on its own line */
+    margin-top: 5px;
+}
+
+.navbar-center .dropdown-content a:hover {
+    background-color: #CEE7FF; /* Light blue hover color */
+}
+
+.navbar-center .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navbar-center .dropdown:hover > a::after {
+    width: 100%; /* Keep the underline visible when hovering over dropdown options */
+    left: 0;
+}
+
+.navbar-center .dropdown-content a::after {
+    display: none; /* Remove underline hover for dropdown items */
+}
+
+.navbar-center .dropdown-content a:hover::after {
+    display: none;
+}
+
+/* Dropdown arrow */
+.dropdown-arrow {
+    margin-left: 6px; /* Space between text and arrow */
+    vertical-align: middle; /* Align arrow with text */
+    transition: transform 0.3s ease; /* Smooth rotation effect */
+}
+
+.dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg); /* Rotate the arrow when dropdown is visible */
+}
+
+/* Right aligned Sign In button and User Icon */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    position: relative; /* Ensure the container's position is relative for correct scaling */
+}
+
+/* Hover Effect for Sign In and User Icon */
+.navbar-right .sign-in,
+.navbar-right .user-icon img {
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.navbar-right .sign-in {
+    margin-right: 15px;
+    color: #0094FF;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.navbar-right .sign-in:hover {
+    color: #0073cc; /* Darker Blue */
+}
+
+.navbar-right .sign-in::before {
+    content: '';
+    position: absolute;
+    left: -5px; /* Adjust this to control the extra hover space */
+    right: -5px; /* Adjust this to control the extra hover space */
+    top: -2px;
+    bottom: -2px;
+    background: transparent;
+    z-index: 0; /* Ensure it's behind the text */
+}
+
+/* User Icon Hover Effect */
+.navbar-right .user-icon img {
+    height: 30px;
+    border-radius: 50%;
+    margin-top: 5px;
+}
+
+.navbar-right:hover .sign-in,
+.navbar-right:hover .user-icon img {
+    color: #0073cc; /* Change color on hover (if needed) */
+}
+
+.navbar-right:hover .user-icon img {
+    transform: scale(1.2); /* Slightly enlarge the icon */
+}
+
+/* General styling for signed-in items */
+.signed-in-item {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/* Icon styles for signed-in items */
+.signed-in-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    transition: 0.3s;
+}
+
+/* Profile icon specific styling */
+.signed-in-profile {
+    width: 33px;
+    height: 33px;
+    margin-right: 20px;
+    border-radius: 50%;
+    border: 2px solid #0094ff;
+    transition: 0.3s;
+}
+
+/* Hover effect for signed-in items */
+.signed-in-icon:hover {
+    transform: scale(1.1);
+}
+
+.signed-in-profile:hover {
+    border: solid #0366cc
+}
+
+/* Hamburger Icon */
+.hamburger-icon {
+    display: none;
+}
+
+.hamburger-icon span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: #000;
+}
+
+/* Sidebar */
+.sidebar {
+    display: none;
+}
+
+/* Sidebar links */
+.sidebar a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 10px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Smooth grey background on hover */
+}
+
+/* Close button */
+.sidebar .close-btn {
+    position: absolute;
+    top: 9px;
+    right: 20px;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+/* Sidebar active */
+.sidebar.active {
+    right: 0; /* Slide-in when active */
+}
+
+.sidebar .dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    margin-left: 20px;
+}
+
+.sidebar .dropdown.active .dropdown-content {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.sidebar .dropdown a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Styling for the dropdown arrow */
+.sidebar .dropdown-arrow {
+    transition: transform 0.3s ease;
+}
+
+/* Media query for max-width 900px */
+@media (max-width: 900px) {
+    .hamburger-icon {
+        display: block; /* Show hamburger on smaller screens */
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        z-index: 15;
+        cursor: pointer;
+    }
+
+    /* Hide navbar center */
+    .navbar-center {
+        display: none;
+    }
+
+    .sidebar {
+        display: block;
+        position: fixed;
+        right: -100%; /* Hidden off-screen */
+        top: 0;
+        height: 100%;
+        width: 300px;
+        background-color: rgba(0, 0, 0, 0.9); /* Dark background */
+        color: #fff;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+        transition: right 0.3s ease; /* Smooth transition */
+        z-index: 10;
+        padding: 20px;
+        padding-top: 80px;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .navbar-center {
+        display: none;
+    }
+
+    /* Hide user icon */
+    .navbar-right .user-icon {
+        display: none;
+    }
+
+    /* Style Sign In as a button */
+    .navbar-right .sign-in {
+        display: inline-block; /* Make it behave like a button */
+        padding: 7px 15px; /* Add padding to make it look like a button */
+        border: 2px solid #0094FF; /* Outline color */
+        border-radius: 10px; /* Rounded corners */
+        background-color: transparent; /* No background color */
+        color: #0094FF; /* Text color */
+        font-weight: 600;
+        text-decoration: none; /* Remove underline */
+        text-align: center; /* Center text */
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    }
+
+    .navbar-right .sign-in:hover {
+        background-color: #0094FF; /* Button background on hover */
+        color: #fff; /* Text color on hover */
+    }
+
+    .navbar-right .sign-in::before {
+        content: none; /* This nukes the pseudo-element */
+        left: auto;    /* Resetting the position */
+        right: auto;
+        top: auto;
+        bottom: auto;
+    }
+
+    /* Adjust navbar-right positioning if needed */
+    .navbar-right {
+        display: flex;
+        align-items: center; /* Ensure vertical alignment of items */
+        margin-right: 50px; /* Adjust to make space for hamburger if needed */
+    }
+
+    /* Slightly reduce navbar height */
+    .navbar {
+        padding: 8px 20px; /* Reduce padding to decrease height */
+    }
+
+    /* Proportionally reduce the ASLTextify logo size */
+    .navbar-left img {
+        height: 45px; /* Slightly reduce logo size */
+    }
+}
+
+/* Media query for max-width 500px */
+@media (max-width: 500px) {
+    /* Slightly reduce navbar height */
+    .navbar {
+        padding: 6px 20px; /* Reduce padding to decrease height */
+    }
+
+    /* Proportionally reduce the ASLTextify logo size */
+    .navbar-left img {
+        height: 40px; /* Slightly reduce logo size */
+    }
+
+    .hamburger-icon {
+        top: 15px;
+    }
+
+    .sidebar .close-btn {
+        top: 4px;
+    }
+
+    .signed-in-icon {
+        width: 16px;  /* Smaller icon size */
+        height: 16px; /* Smaller icon size */
+    }
+
+    .signed-in-profile {
+        width: 28px; /* Smaller profile size */
+        height: 28px; /* Smaller profile size */
+    }
+}
+
+
+/* Styles for the dark mode toggle button on index.html */
+.dark-mode-toggle {
+    position: fixed;
+    margin-bottom: 15px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #000000;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 10000;
+}
+
+.dark-mode .carousel-slide{
+    background-color: #000;
+}
+
+/* shadow effect for navbar in dark mode */
+.dark-mode .navbar{
+    box-shadow: 0px 7px 7px rgba(255, 255, 255, 0.1);
+}
+
+
+/* Dark mode style for first slide */
+.dark-mode .slide-one p{
+    color: #fff;
+}
+.dark-mode .carousel-slide p{
+    color: #fff;
+}
+.dark-mode .carousel-slide span{
+    color: #ffffff;
+}
+
+/* Dark mode style for third slide */
+.dark-mode .slide-three span{
+    color: #0094FF;
+}
+.dark-mode .slide-three h1{
+    color: #ffffff;
+}
+.dark-mode .slide-three p{
+    color: #ffffff;
+}
+
+
+.dark-mode .testimonials-section h3{
+    color: white;
+}
+
+
+
+.dark-mode .whoweare-section1{
+    background: linear-gradient(135deg, #C395FF 40%, #53b7ff 80%);
+}
+
+
+.dark-mode-toggle img {
+    width: 30px;
+    height: 25px;
+}
+
+.dark-mode-toggle:hover {
+    background-color: #005f99;
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: #1a1a1a;
+    color: #f1f1f1;
+}
+
+.dark-mode .navbar {
+    background-color: #000000;
+}
+
+.dark-mode .navbar-center a{
+    color: #ffffff;
+}
+
+.dark-mode .dropdown .dropdown-content{
+    background-color: #1E1E1E;
+}
+
+.dark-mode .dropdown-content a:hover {
+    background-color: #000000;
+}
+
+.dark-mode .dropdown-content a {
+    color: #0094FF;
+}
+
+.dark-mode .dropdown-content small {
+    color: #ffffff;
+}
+
+.dark-mode .dark-mode-toggle {
+    background: linear-gradient(270deg, #005f99, #590099);
+}
+
+.dark-mode .hamburger-icon span {
+    background-color: #fff;
+}
+
+.dark-mode .sidebar {
+    background-color: #1b1a1a; /* Smooth grey background on hover */
+}
+
+.dark-mode .sidebar .dropdown-content a {
+    color: #ffffff;
+}
+
+.dark-mode .sidebar .dropdown-content{
+    background-color: #1b1a1a;
+}
+
+.dark-mode .signed-in-icon {
+    filter: invert(1);
+}
+
+/* Footer Styles */
+footer {
+    background-color: #247dd9; /* Updated Footer Color */
+    color: white;
+    padding: 40px 80px;
+    position: relative;
+}
+
+/* Footer Logo (Aligned to Left with Increased Size) */
+.footer-logo {
+    text-align: left;
+    margin-left: -10px;
+}
+
+.footer-logo img {
+    max-width: 250px; /* Increased logo size */
+}
+
+/* Fixed CTA Container (Half-In, Half-Out) */
+.cta-container {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #ff00d4, #00ddff); /* Updated Gradient */
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+.cta-container p {
+    margin: 0;
+    font-weight: bold;
+}
+
+/* CTA Buttons Styling */
+.cta-buttons button {
+    margin: 0 10px;
+    padding: 12px 30px; /* Slightly Longer */
+    font-weight: bold;
+    border-radius: 25px; /* Increased Button Radius */
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* Sign Up Button (Black Background) */
+.cta-buttons .signup {
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+.cta-buttons .signup:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Sign In Button (White Background) */
+.cta-buttons .signin {
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+.cta-buttons .signin:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Footer Columns */
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.column h3 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+
+.column a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 8px 0;
+    transition: color 0.3s;
+}
+
+.column a:hover {
+    color: #000;
+}
+
+/* Social Media Icons (Reduced Size) */
+.follow-us a {
+    display: inline-block;
+    margin: 0 8px;
+    transform: translateX(-5px);
+}
+
+.follow-us img {
+    height: 24px;
+    transition: 0.3s;
+}
+
+.follow-us img:hover {
+    filter: invert(99%) sepia(1%) saturate(0%) hue-rotate(184deg) brightness(113%) contrast(100%);
+}
+
+/* Language Button Styling */
+.language button {
+    background-color: #333;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.language button:hover {
+    background-color: #555;
+}
+
+/* Bottom Section and Divider Line */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: -20px;
+    width: 100%;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid white;
+    margin: 15px 0;
+    width: 100%; /* Full width divider line */
+    margin-bottom: -20px;
+}
+
+/* Copyright */
+.copyright p {
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    footer {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    /* Compact CTA Container */
+    .cta-container {
+        top: -19px;
+        width: 90%;
+        padding: 5px 10px; /* Reduced padding */
+    }
+
+    .cta-container p {
+        font-size: 14px; /* Smaller text in px */
+    }
+
+    /* Smaller Buttons */
+    .cta-buttons button {
+        padding: 7px 12px; /* Reduced padding */
+        font-size: 12px; /* Smaller font size in px */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-columns {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-logo img {
+        max-width: 250px; /* Adjust logo size on smaller screens */
+        margin-top: 10px;
+    }
+
+    .column h3 {
+        text-transform: uppercase;
+    }
+
+    .cta-container {
+        top: -38px;
+        width: 80%;
+        padding: 5px 10px; /* Reduced padding */
+    }
+
+    .cta-container .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cta-buttons button {
+        padding: 8px 15px;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+}

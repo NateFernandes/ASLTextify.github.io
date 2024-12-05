@@ -1,0 +1,63 @@
+body {
+    background: #0366cc;
+    color: black;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    width: 100%; /* Full width for responsiveness */
+}
+
+.hero {
+    background: rgba(255, 255, 255, 0.8); /* Lighter background */
+    padding: 40px 20px;
+    clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 90%); /* Adjusted shape */
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 40px; /* Changed to px */
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 20px; /* Changed to px */
+    margin-bottom: 20px;
+}
+
+.widget-container {
+    background: rgba(255, 255, 255, 0.8); /* Lighter background for widget */
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.calendly-inline-widget {
+    min-width: 320px;
+    height: 700px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 32px; /* Changed to px */
+    }
+    p {
+        font-size: 16px; /* Changed to px */
+    }
+    .widget-container {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px; /* Changed to px */
+    }
+    p {
+        font-size: 14px; /* Changed to px */
+    }
+    .calendly-inline-widget {
+        height: 600px;
+    }
+}

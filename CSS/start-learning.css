@@ -1,0 +1,230 @@
+body {
+    background-color: #f9f9f9; /* Background color */
+    overflow-x: hidden; /* Hide overflow */
+}
+
+.container {
+    max-width: 900px; /* Increased width */
+    width: 100%; /* Full width */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Padding on sides */
+}
+
+.header {
+    text-align: center; /* Centered header */
+    padding: 20px; /* Padding */
+}
+
+.header h1 {
+    font-size: 40px; /* Title size */
+    color: #0044cc; /* Title color */
+}
+
+/* Section styles */
+.home-page,
+.translator-features,
+.courses,
+.user-account-tips,
+.contact-support,
+.tips,
+.faqs {
+    background: #fff; /* Section background */
+    padding: 30px; /* Internal padding */
+    margin: 40px 0; /* Space between sections */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Shadow */
+    position: relative; /* For shape positioning */
+    text-align: left; /* Left align text */
+}
+
+/* Shapes for aesthetics */
+.home-page::before,
+.translator-features::before,
+.courses::before,
+.user-account-tips::before,
+.contact-support::before,
+.tips::before,
+.faqs::before {
+    content: ""; /* Create shape */
+    position: absolute; /* Position shapes */
+    z-index: -1; /* Behind sections */
+    transition: all 0.3s ease; /* Smooth transition for responsiveness */
+}
+
+/* Increased shape sizes */
+.home-page::before {
+    width: 200px; /* Increased size */
+    height: 200px; /* Increased size */
+    background-color: #0044cc; 
+    top: -60px; 
+    left: -10%; /* Keep it on the left */
+    clip-path: polygon(0% 0%, 100% 0%, 0% 100%); /* Triangle shape */
+    transform: rotate(-15deg); /* Rotate */
+}
+
+.translator-features::before {
+    width: 160px; /* Increased size */
+    height: 160px; /* Increased size */
+    background-color: #0055ee; 
+    bottom: -60px; 
+    right: -10%; /* Keep it on the right */
+    clip-path: circle(50%); /* Circle shape */
+    transform: rotate(10deg); /* Rotate */
+}
+
+.courses::before {
+    width: 180px; /* Increased size */
+    height: 180px; /* Increased size */
+    background-color: #00cc44; 
+    top: -40px; 
+    right: -10%; /* Keep it on the right */
+    clip-path: polygon(0% 100%, 100% 100%, 50% 0%); /* Triangle shape */
+    transform: rotate(-20deg); /* Rotate */
+}
+
+.user-account-tips::before {
+    width: 160px; /* Increased size */
+    height: 160px; /* Increased size */
+    background-color: #ff5722; /* Orange */
+    bottom: -30px; 
+    left: -10%; /* Keep it on the left */
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%); /* Triangle shape */
+    transform: rotate(5deg); /* Rotate */
+}
+
+.contact-support::before {
+    width: 140px; /* Increased size */
+    height: 140px; /* Increased size */
+    top: -30px; 
+    left: -10%; /* Keep it on the left */
+    background-color: #9c27b0; /* Purple */
+    clip-path: circle(50%); /* Circle shape */
+    transform: rotate(-10deg); /* Rotate */
+}
+
+.tips::before {
+    width: 160px; /* Increased size */
+    height: 160px; /* Increased size */
+    background-color: #ffc107; /* Yellow */
+    bottom: -60px; 
+    right: -10%; /* Keep it on the right */
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%); /* Triangle shape */
+    transform: rotate(-30deg); /* Rotate */
+}
+
+.faqs::before {
+    width: 170px; /* Increased size */
+    height: 170px; /* Increased size */
+    top: -40px; 
+    right: -10%; /* Keep it on the right */
+    background-color: #3f51b5; /* Blue */
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%); /* Triangle shape */
+    transform: rotate(15deg); /* Rotate */
+}
+
+@media (max-width: 1200px) {
+    .home-page::before,
+    .user-account-tips::before,
+    .contact-support::before {
+        width: 150px;
+        height: 150px;
+        left: 0%;
+    }
+
+    .translator-features::before,
+    .courses::before,
+    .tips::before,
+    .faqs::before {
+        width: 150px; /* Adjust size */
+        height: 150px; /* Adjust size */
+        right: 0%; /* Keep it on the right */
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        width: 80%;
+    }
+
+    .home-page::before,
+    .user-account-tips::before,
+    .contact-support::before {
+        width: 120px;
+        height: 120px;
+        left: 5%;
+    }
+
+    .translator-features::before,
+    .courses::before,
+    .tips::before,
+    .faqs::before {
+        width: 120px; /* Further reduce size */
+        height: 120px; /* Further reduce size */
+        right: 5%; /* Keep it on the right */
+    }
+}
+
+@media (max-width: 768px) {
+    .home-page::before,
+    .user-account-tips::before,
+    .contact-support::before {
+        width: 90px; /* Even smaller size */
+        height: 90px; /* Even smaller size */
+        left: 8%; /* Adjust for positioning */
+    }
+    
+    .translator-features::before,
+    .courses::before,
+    .tips::before,
+    .faqs::before {
+        width: 90px; /* Even smaller size */
+        height: 90px; /* Even smaller size */
+        right: 8%; /* Adjust for positioning */
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 85%;
+    }
+
+    .home-page::before,
+    .user-account-tips::before,
+    .contact-support::before {
+        width: 80px; /* Smallest size */
+        height: 80px; /* Smallest size */
+        left: 10%; /* Adjust */
+    }
+    
+    .translator-features::before,
+    .courses::before,
+    .tips::before,
+    .faqs::before {
+        width: 80px; /* Smallest size */
+        height: 80px; /* Smallest size */
+        right: 10%; /* Adjust */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+    }
+
+    .home-page::before,
+    .user-account-tips::before,
+    .contact-support::before {
+        width: 70px; /* Smallest size */
+        height: 70px; /* Smallest size */
+        left: 15%; /* Adjust */
+    }
+    
+    .translator-features::before,
+    .courses::before,
+    .tips::before,
+    .faqs::before {
+        width: 70px; /* Smallest size */
+        height: 70px; /* Smallest size */
+        right: 15%; /* Adjust */
+    }
+}

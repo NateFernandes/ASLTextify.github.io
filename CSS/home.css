@@ -1,0 +1,1170 @@
+html, body {
+    overflow-x: hidden;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 20px; /* Add padding to the left and right */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    user-select: none;
+}
+
+.carousel-slides {
+    display: flex;
+    width: calc(100% + 40px); /* Adjust width to account for container padding */
+    margin-left: -20px; /* Offset the left padding */
+    height: 550px;
+    position: relative;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #fff;
+    padding-left: 80px;  /* Add left padding */
+    padding-right: 80px; /* Add right padding */
+    clip-path: circle(0% at 50% 50%);
+    transition: clip-path 1s ease-in-out;
+}
+
+.carousel-slide.active {
+    clip-path: circle(100% at 50% 50%);
+}
+
+.carousel-slide.left-swipe.active {
+    clip-path: circle(150% at 0% 50%);
+}
+
+.carousel-slide.right-swipe.active {
+    clip-path: circle(150% at 100% 50%);
+}
+
+.carousel-slide.middle-swipe.active {
+    clip-path: circle(100% at 50% 50%);
+}
+
+.carousel-slide.initial-hidden {
+    clip-path: none; /* Hide the clip-path animation */
+    transition: none; /* Disable transition */
+}
+
+/* Slide 1: Left Alignment */
+.slide-one {
+    text-align: left;
+}
+
+.slide-one h1 {
+    font-weight: 600;
+    font-size: 50px;
+}
+
+.slide-one h1 .highlight {
+    color: #0094FF;
+}
+
+.slide-one h1 span {
+    color: #000000;
+}
+
+.slide-one p {
+    color: #000000;
+    font-weight: 400;
+    font-size: 20px;
+    padding-right: 600px;
+}
+
+/* Slide 2: Center Alignment */
+.slide-two {
+    text-align: center;
+}
+
+.slide-two h1 {
+    font-weight: 600;
+    font-size: 50px;
+}
+
+.slide-two h1 .highlight {
+    color: #0094FF;
+}
+
+.slide-two h1 span {
+    color: #fff;
+}
+
+.slide-two p {
+    color: #fff;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+/* Slide 3: Right Alignment */
+.slide-three {
+    text-align: right;
+}
+
+.slide-three h1 {
+    font-weight: 600;
+    font-size: 50px;
+    color: #000000;
+}
+
+.slide-three h1 span {
+    color: #0094FF;
+}
+
+.slide-three p {
+    color: #000000;
+    font-weight: 400;
+    font-size: 20px;
+    padding-left: 600px;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    width: calc(100% - 40px); /* Adjust width to account for padding */
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    left: 20px; /* Match the padding on the left */
+    right: 20px; /* Match the padding on the right */
+}
+
+.nav-arrow {
+    width: 30px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.nav-arrow:hover {
+    opacity: 1;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    width: calc(100% - 40px);
+    text-align: center;
+}
+
+.indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: lightgrey;
+    border: none;
+    cursor: pointer;
+
+    /* Transition for smooth changes */
+    transition: width 0.3s ease, 
+                height 0.3s ease, 
+                background-color 0.3s ease, 
+                transform 0.3s ease;
+}
+
+.indicator.active {
+    width: 16px;
+    height: 16px;
+    background-color: #0094FF;
+    transform: translateY(2px);
+}
+
+/* Common CTA Button Styles */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #0094FF;
+    color: #fff;
+    padding: 15px 30px; /* Increase padding for a larger button */
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 10px;
+    font-size: 18px; /* Increase font size */
+    transition: background-color 0.3s;
+}
+
+.cta-button img {
+    margin-left: 10px; /* Increase space between text and icon */
+    width: 24px; /* Increase icon size */
+}
+
+.cta-button:hover {
+    background-color: #007acc;
+}
+
+/* Slide 1 Specific CTA Button Adjustments */
+.slide-one .cta-button {
+    margin: 0;
+}
+
+/* Slide 2 Specific CTA Buttons Container */
+.slide-two .cta-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 10px; /* Maintain space between buttons */
+    margin-top: 20px; /* Add some space above the buttons */
+}
+
+/* Facebook Button */
+.slide-two .cta-button:nth-child(1) {
+    background-color: transparent; /* Initial state */
+    color: #1877F2;
+    border: 2px solid #1877F2; /* Outline */
+}
+
+.slide-two .cta-button:nth-child(1):hover {
+    background-color: #1877F2; /* On hover, fill the button */
+    color: #fff;
+}
+
+/* Instagram Button */
+.slide-two .cta-button:nth-child(2) {
+    background-color: transparent; /* Initial state */
+    color: #CA5F64;
+    border: 2px solid #CA5F64; /* Outline */
+}
+
+.slide-two .cta-button:nth-child(2):hover {
+    background-color: #CA5F64; /* On hover, fill the button */
+    color: #fff;
+}
+
+/* Slide 2: Center Alignment */
+.slide-two {
+    text-align: center;
+    position: relative; /* Position relative for stacking context */
+    color: #fff; /* Ensure text color contrasts with background */
+    overflow: hidden; /* Hide overflow of the image */
+}
+
+/* Slide 2 Image */
+.slide-two-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('connecting on social media.png');
+    background-size: cover; /* Cover the entire slide without stretching */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease-in; /* Fade-in effect */
+    z-index: 1; /* Ensure the image is below text but above the background */
+    filter: brightness(0.5); /* Decrease brightness of the image */
+}
+
+/* Ensure text and buttons stay above the image */
+.slide-two h1,
+.slide-two p,
+.slide-two .cta-buttons {
+    position: relative; /* Ensure text and buttons stay on top */
+    z-index: 2; /* Ensure content is above the image */
+}
+
+/* Slide 1 Specific Styles */
+.slide-one {
+    text-align: left;
+    position: relative; /* Keep it relative for stacking context */
+}
+
+.slide-one-images {
+    position: absolute;
+    top: 50%;
+    right: 0; /* Align images to the right */
+    transform: translateY(-50%); /* Center vertically */
+    z-index: 0;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0);  /* Start invisible */
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);  /* Settle at normal size */
+        opacity: 1;
+    }
+}
+
+.circular-graphic {
+    width: 800px;
+    position: relative;
+    transform: scale(0);  /* Start hidden */
+    opacity: 0;           /* Hidden by default */
+}
+
+.circular-graphic.pulse {
+    animation: pulse 1.5s ease-out forwards;  /* One-time pulse animation */
+}
+
+.main-image {
+    width: 550px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Slide 3 Specific Styles */
+.slide-three {
+    text-align: right;
+    position: relative; /* Positioning needed for stacking */
+}
+
+.slide-three-image {
+    position: absolute;
+    top: 66%;
+    left: 4%; /* Align the image to the left side of the slide */
+    width: 600px;
+    height: auto;
+    transform: translateY(-50%); /* Center it vertically */
+    z-index: 0;
+}
+
+.slide-three h1, .slide-three p {
+    position: relative;
+    z-index: 1; /* Ensure text is above the image */
+}
+
+.slide-three .cta-button {
+    margin: 0;
+}
+
+.testimonials-section {
+    text-align: center; /* Center the headings */
+    margin-top: 20px;
+    scroll-margin-top: 50px;
+}
+
+.testimonials-heading {
+    color: #0094FF; /* Dodger blue color */
+    font-weight: 500; /* Font weight */
+    font-size: 15px; /* Size it up */
+}
+
+.testimonials-sub-heading {
+    color: #000000; /* Black color */
+    font-weight: 600; /* Font weight */
+    font-size: 30px; /* Slightly smaller than the main heading */
+    margin-top: -10px;
+}
+
+.whoweare {
+    margin-top: 20px;
+}
+
+.whoweare-heading {
+    text-align: center;
+    color: #0094FF; /* Dodger blue color */
+    font-weight: 500; /* Font weight */
+    font-size: 15px; /* Size it up */
+}
+
+.whoweare-section1 {
+    text-align: left;
+    height: 500px;
+    width: 100%;
+    background: linear-gradient(135deg, #C395FF 20%, #53b7ff 80%);
+    padding: 20px; /* Adjust padding as needed */
+    box-sizing: border-box; /* To include padding in height */
+}
+
+.whoweare-section1 h3 {
+    color: #000000; /* Black color */
+    font-weight: 600; /* Font weight */
+    font-size: 30px; /* Slightly smaller than the main heading */
+    margin-left: 60px;
+    margin-top: 0px;
+}
+
+.whoweare-section1 p {
+    color: #000000;
+    font-weight: 400;
+    font-size: 20px;
+    margin-left: 60px;
+    margin-top: -10px; /* Add this line for spacing */
+    padding-right: 670px;
+}
+
+.whoweare-section2 {
+    text-align: right;
+    height: 500px;
+    width: 100%;
+    background: linear-gradient(225deg, #8cffe4 20%, #53b7ff 80%);
+    padding: 20px; /* Adjust padding as needed */
+    box-sizing: border-box; /* To include padding in height */
+    margin-top: 50px;
+}
+
+.whoweare-section2 h3 {
+    color: #000000; /* Black color */
+    font-weight: 600; /* Font weight */
+    font-size: 30px; /* Slightly smaller than the main heading */
+    margin-right: 60px;
+    margin-top: 0px;
+}
+
+.whoweare-section2 p {
+    color: #000000;
+    font-weight: 400;
+    font-size: 20px;
+    margin-right: 60px;
+    margin-top: -10px; /* Add this line for spacing */
+    padding-left: 450px;
+}
+
+.whoweare-buttons {
+    display: inline-flex;
+    align-items: center;
+    background-color: transparent;
+    color: #0094ff;
+    border: 2px solid #0094ff;
+    padding: 12px 16px; /* Increase padding for a larger button */
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 10px;
+    font-size: 16px; /* Increase font size */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.3s, background-color 0.3s;
+    transition: border 0.3s;
+}
+
+.whoweare-buttons::before {
+    content: '';
+    position: absolute;
+    border-radius: 50px;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #0094ff;
+    z-index: -1;
+    transition: left 0.3s;
+}
+
+.whoweare-buttons:hover::before {
+    left: 0;
+}
+
+.whoweare-buttons:not(:hover)::before {
+    left: -100%;
+}
+
+.whoweare-buttons img {
+    margin-left: 10px;
+    width: 18px;
+    filter: invert(45%) sepia(87%) saturate(3771%) hue-rotate(186deg) brightness(103%) contrast(104%);
+    transition: filter 0.3s;
+}
+
+.whoweare-buttons:hover {
+    color: #fff;
+    border: 2px solid #fff
+}
+
+.whoweare-buttons:hover img {
+    filter: invert(0%);
+}
+
+.whoweare-section1 .whoweare-buttons {
+    margin-left: 60px;
+    align-self: flex-start;
+}
+
+.whoweare-section2 .whoweare-buttons {
+    margin-right: 60px;
+    align-self: flex-end;
+}
+
+.whoweare-section1, .whoweare-section2 {
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center items vertically */
+}
+
+.bridging-the-gap {
+    position: absolute;
+    right: 0; /* Align images to the right */
+    width: 500px;
+    z-index: 0;
+    margin-right: 100px;
+    border-radius: 30px;
+}
+
+.asl-text-img {
+    position: absolute;
+    left: 0; /* Align images to the right */
+    width: 300px;
+    z-index: 0;
+    margin-left: 100px;
+    border-radius: 30px;
+}
+
+/* Add animation classes */
+.hidden {
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Default Styles (anything above 1250px) */
+
+/* Max-width 1250px */
+@media (max-width: 1250px) {
+    /* Adjust your layout for devices smaller than 1250px */
+    .carousel-slides {
+        height: 500px;
+    }
+    .carousel-slide h1 {
+        font-size: 45px; /* Reduce font size */
+    }
+    .slide-one p {
+        padding-right: 500px; /* Adjust padding */
+        font-size: 18px;
+    }
+    .slide-two p {
+        font-size: 18px
+    }
+    .slide-three p {
+        padding-left: 500px; /* Adjust padding */
+        font-size: 18px;
+    }
+    .main-image {
+        width: 450px; /* Resize image */
+    }
+    .circular-graphic {
+        width: 700px;
+    }
+    .cta-button {
+        padding: 13px 28px; /* Smaller button */
+        font-size: 16px;
+    }
+    .cta-button img {
+        width: 22px;
+    }
+    .testimonials-sub-heading {
+        font-size: 28px;
+        margin-top: -8px;
+        margin-bottom: 25px;
+    }
+    .whoweare-section1 {
+        height: 450px;
+    }
+    .whoweare-section1 h3 {
+        font-size: 28px;
+        margin-left: 50px;
+    }
+    .whoweare-section1 p {
+        font-size: 18px;
+        margin-left: 50px;
+        padding-right: 620px;
+    }
+    .whoweare-section2 {
+        height: 450px;
+        margin-top: 45px;
+    }
+    .whoweare-section2 h3 {
+        font-size: 28px;
+        margin-right: 50px;
+    }
+    .whoweare-section2 p {
+        font-size: 18px;
+        margin-right: 50px;
+        padding-left: 400px;
+    }
+    .whoweare-section1 .whoweare-buttons {
+        margin-left: 50px;
+    }
+    .whoweare-section2 .whoweare-buttons {
+        margin-right: 50px;
+    }
+    .bridging-the-gap {
+        width: 450px;
+        margin-right: 80px;
+    }
+    .asl-text-img {
+        width: 250px;
+        margin-left: 80px;
+    }
+}
+
+/* Max-width 1100px */
+@media (max-width: 1100px) {
+    /* Further adjustments for smaller screens */
+    .carousel-slides {
+        height: 450px;
+    }
+    .carousel-slide h1 {
+        font-size: 40px;
+    }
+    .slide-one p {
+        padding-right: 400px;
+        font-size: 16px;
+    }
+    .slide-two p {
+        font-size: 16px
+    }
+    .slide-three p {
+        padding-left: 450px;
+        font-size: 16px;
+    }
+    .main-image {
+        width: 400px;
+    }
+    .circular-graphic {
+        width: 600px;
+    }
+    .slide-three-image {
+        width: 500px;
+    }
+    .testimonials-sub-heading {
+        font-size: 26px;
+        margin-top: -6px;
+        margin-bottom: 30px;
+    }
+    .whoweare-section1 {
+        height: 400px;
+    }
+    .whoweare-section1 h3 {
+        font-size: 26px; /* Slightly smaller than the main heading */
+        margin-left: 40px;
+    }
+    .whoweare-section1 p {
+        font-size: 16px;
+        margin-left: 40px;
+        padding-right: 560px;
+    }
+    .whoweare-section2 {
+        height: 400px;
+        margin-top: 40px;
+    }
+    .whoweare-section2 h3 {
+        font-size: 26px;
+        margin-right: 40px;
+    }
+    .whoweare-section2 p {
+        font-size: 16px;
+        margin-right: 40px;
+        padding-left: 380px;
+    }
+    .whoweare-section1 .whoweare-buttons {
+        margin-left: 40px;
+    }
+    .whoweare-section2 .whoweare-buttons {
+        margin-right: 40px;
+    }
+    .bridging-the-gap {
+        width: 400px;
+        margin-right: 60px;
+    }
+    .asl-text-img {
+        width: 250px;
+        margin-left: 60px;
+    }
+    .whoweare-buttons {
+        padding: 10px 14px;
+        margin: 8px;
+        font-size: 14px;
+    }
+    .whoweare-buttons img {
+        width: 16px;
+    }
+}
+
+/* Max-width 1000px */
+@media (max-width: 1000px) {
+    .carousel-slides {
+        height: 425px;
+    }
+    .carousel-slide h1 {
+        font-size: 38px;
+    }
+    .slide-one p {
+        padding-right: 380px;
+        font-size: 14px;
+    }
+    .slide-two p {
+        font-size: 14px;
+    }
+    .slide-three p {
+        padding-left: 320px;
+        font-size: 14px;
+    }
+    .main-image {
+        width: 380px;
+    }
+    .circular-graphic {
+        width: 550px;
+    }
+    .slide-three-image {
+        width: 400px;
+        top: 71%;
+    }
+    .cta-button {
+        padding: 12px 27px;
+        font-size: 15px;
+    }
+    .cta-button img {
+        width: 21px;
+    }
+    .testimonials-sub-heading {
+        font-size: 21px;
+        margin-top: -4px;
+        margin-bottom: 35px;
+    }
+    .whoweare-section1 {
+        height: 350px;
+    }
+    .whoweare-section1 h3 {
+        font-size: 21px; /* Slightly smaller than the main heading */
+        margin-left: 30px;
+    }
+    .whoweare-section1 p {
+        font-size: 13px;
+        margin-left: 30px;
+        padding-right: 430px;
+    }
+    .whoweare-section2 {
+        height: 350px;
+        margin-top: 35px;
+    }
+    .whoweare-section2 h3 {
+        font-size: 21px;
+        margin-right: 30px;
+    }
+    .whoweare-section2 p {
+        font-size: 13px;
+        margin-right: 30px;
+        padding-left: 300px;
+    }
+    .whoweare-section1 .whoweare-buttons {
+        margin-left: 30px;
+    }
+    .whoweare-section2 .whoweare-buttons {
+        margin-right: 30px;
+    }
+    .bridging-the-gap {
+        width: 350px;
+        margin-right: 50px;
+    }
+    .asl-text-img {
+        width: 230px;
+        margin-left: 50px;
+    }
+    .whoweare-buttons {
+        padding: 8px 12px;
+        margin: 6px;
+        font-size: 12px;
+    }
+    .whoweare-buttons img {
+        width: 14px;
+    }
+}
+
+/* Max-width 800px */
+@media (max-width: 800px) {
+    /* Mobile/tablet friendly adjustments */
+    .carousel-slides {
+        height: 350px; /* Shrink slide height */
+    }
+    .carousel-slide h1 {
+        font-size: 33px;
+    }
+    .slide-one p {
+        padding-right: 320px;
+        font-size: 12px;
+    }
+    .slide-two p {
+        font-size: 12px;
+    }
+    .slide-three p {
+        padding-left: 250px;
+        font-size: 12px;
+    }
+    .main-image {
+        width: 330px;
+    }
+    .circular-graphic {
+        width: 470px;
+    }
+    .nav-arrow {
+        width: 25px; /* Resize arrows */
+    }
+    .slide-three-image {
+        width: 320px;
+        top: 72%;
+    }
+    .cta-button {
+        padding: 10px 25px;
+        font-size: 13px;
+    }
+    .cta-button img {
+        width: 19px;
+    }
+    .testimonials-heading {
+        font-size: 13px; /* Size it up */
+    }
+    .testimonials-sub-heading {
+        font-size: 19px;
+        margin-top: -2px;
+        margin-bottom: 40px;
+    }
+    .whoweare-heading {
+        font-size: 13px; /* Size it up */
+    }
+    .whoweare-section1 {
+        height: 300px;
+    }
+    .whoweare-section1 h3 {
+        font-size: 19px; /* Slightly smaller than the main heading */
+        margin-left: 20px;
+    }
+    .whoweare-section1 p {
+        font-size: 11px;
+        margin-left: 20px;
+        padding-right: 370px;
+    }
+    .whoweare-section2 {
+        height: 300px;
+        margin-top: 30px;
+    }
+    .whoweare-section2 h3 {
+        font-size: 19px;
+        margin-right: 20px;
+    }
+    .whoweare-section2 p {
+        font-size: 11px;
+        margin-right: 20px;
+        padding-left: 270px;
+    }
+    .whoweare-section1 .whoweare-buttons {
+        margin-left: 20px;
+    }
+    .whoweare-section2 .whoweare-buttons {
+        margin-right: 20px;
+    }
+    .bridging-the-gap {
+        width: 300px;
+        margin-right: 40px;
+    }
+    .asl-text-img {
+        width: 200px;
+        margin-left: 40px;
+    }
+    .whoweare-buttons {
+        padding: 6px 10px;
+        margin: 4px;
+        font-size: 10px;
+        border: 1.5px solid #0094ff;
+    }
+    .whoweare-buttons img {
+        width: 12px;
+    }
+    .whoweare-buttons:hover {
+        border: 1.5px solid #fff
+    }
+}
+
+/* Max-width 700px */
+@media (max-width: 700px) {
+    .carousel-slides {
+        height: 500px; /* Shrink slide height */
+    }
+    .carousel-slide {
+        padding-left: 50px; 
+        padding-right: 50px;  
+    }
+    .carousel-slide h1 {
+        font-size: 31px;
+    }
+    .slide-two h1 {
+        margin-top: 80px;
+    }
+    .slide-one p {
+        padding-right: 0px;
+        font-size: 12px;
+    }
+    .slide-two p {
+        font-size: 14px;
+    }
+    .slide-three p {
+        padding-left: 0px;
+        font-size: 12px;
+    }
+    .main-image {
+        width: 180px;
+    }
+    .circular-graphic {
+        width: 280px;
+    }
+    .slide-one-images {
+        top: 70%;
+        right: 50%;
+        transform: translate(50%, -50%);
+    }
+    .slide-three-image {
+        width: 330px;
+        top: 80%;
+        left: 30%;
+    }
+    .testimonials-heading {
+        font-size: 11px; /* Size it up */
+    }
+    .testimonials-sub-heading {
+        font-size: 15px;
+        margin-top: -1px;
+        margin-bottom: 45px;
+    }
+    .whoweare-heading {
+        font-size: 11px; /* Size it up */
+    }
+    .whoweare-section1 {
+        height: 250px;
+    }
+    .whoweare-section1 h3 {
+        font-size: 15px; /* Slightly smaller than the main heading */
+        margin-left: 10px;
+        padding-right: 250px;
+    }
+    .whoweare-section1 p {
+        font-size: 9px;
+        margin-left: 10px;
+        padding-right: 250px;
+    }
+    .whoweare-section2 {
+        height: 250px;
+        margin-top: 25px;
+    }
+    .whoweare-section2 h3 {
+        font-size: 15px;
+        margin-right: 10px;
+        padding-left: 200px;
+    }
+    .whoweare-section2 p {
+        font-size: 9px;
+        margin-right: 10px;
+        padding-left: 200px;
+    }
+    .whoweare-section1 .whoweare-buttons {
+        margin-left: 10px;
+    }
+    .whoweare-section2 .whoweare-buttons {
+        margin-right: 10px;
+    }
+    .bridging-the-gap {
+        width: 200px;
+        margin-right: 30px;
+        border-radius: 30px;
+    }
+    .asl-text-img {
+        width: 150px;
+        margin-left: 30px;
+        border-radius: 30px;
+    }
+    .whoweare-buttons {
+        padding: 4px 8px;
+        margin: 2px;
+        font-size: 8px;
+    }
+    .whoweare-buttons img {
+        width: 10px;
+        margin-left: 8px;
+    }
+}
+
+/* Max-width 500px */
+@media (max-width: 500px) {
+    /* Ultra mobile adjustments */
+    .carousel-slides {
+        height: 450px; /* Shrink slide height */
+    }
+    .carousel-slide h1 {
+        font-size: 20px;
+    }
+    .slide-one p {
+        padding-right: 0px;
+        font-size: 10px;
+    }
+    .slide-two p {
+        font-size: 12px;
+    }
+    .slide-three p {
+        padding-left: 0px;
+        font-size: 10px;
+    }
+    .main-image {
+        width: 180px;
+    }
+    .circular-graphic {
+        width: 280px;
+    }
+    .slide-one-images {
+        top: 70%;
+    }
+    .slide-three-image {
+        width: 330px;
+        top: 77%;
+        left: 13%;
+    }
+    .cta-button {
+        padding: 8px 21px;
+        font-size: 11px;
+    }
+    .cta-button img {
+        width: 18px;
+    }
+    .nav-arrow {
+        width: 23px; /* Resize arrows */
+    }
+    .testimonials-heading {
+        font-size: 9px;
+    }
+    .testimonials-sub-heading {
+        font-size: 13px;
+        margin-top: 1px;
+        margin-bottom: 40px;
+    }
+    .whoweare-heading {
+        font-size: 9px;
+    }
+    .whoweare-section1 {
+        height: 200px;
+    }
+    .whoweare-section1 h3 {
+        font-size: 13px; /* Slightly smaller than the main heading */
+        margin-left: 10px;
+        padding-right: 200px;
+    }
+    .whoweare-section1 p {
+        font-size: 7px;
+        margin-left: 10px;
+        padding-right: 200px;
+    }
+    .whoweare-section2 {
+        height: 200px;
+        margin-top: 20px;
+    }
+    .whoweare-section2 h3 {
+        font-size: 13px;
+        margin-right: 10px;
+        padding-left: 150px;
+    }
+    .whoweare-section2 p {
+        font-size: 7px;
+        margin-right: 10px;
+        padding-left: 150px;
+    }
+    .whoweare-section1 .whoweare-buttons {
+        margin-left: 10px;
+    }
+    .whoweare-section2 .whoweare-buttons {
+        margin-right: 10px;
+    }
+    .bridging-the-gap {
+        width: 150px;
+        margin-right: 30px;
+        border-radius: 20px;
+    }
+    .asl-text-img {
+        width: 100px;
+        margin-left: 30px;
+        border-radius: 20px;
+    }
+    .whoweare-buttons {
+        padding: 4px 8px;
+        margin: 2px;
+        font-size: 6px;
+    }
+    .whoweare-buttons img {
+        width: 8px;
+        margin-left: 6px;
+    }
+}
+
+/* Max-width 400px */
+@media (max-width: 400px) {
+    .testimonials-heading {
+        font-size: 8px;
+    }
+    .testimonials-sub-heading {
+        font-size: 12px;
+        margin-top: 0px;
+        margin-bottom: 45px;
+    }
+    .whoweare-heading {
+        font-size: 8px;
+    }
+    .whoweare-section1 {
+        height: 150px;
+    }
+    .whoweare-section1 h3 {
+        font-size: 12px; /* Slightly smaller than the main heading */
+        margin-left: 5px;
+        padding-right: 150px;
+    }
+    .whoweare-section1 p {
+        font-size: 6px;
+        margin-left: 5px;
+        padding-right: 150px;
+    }
+    .whoweare-section2 {
+        height: 150px;
+        margin-top: 15px;
+    }
+    .whoweare-section2 h3 {
+        font-size: 12px;
+        margin-right: 5px;
+        padding-left: 110px;
+    }
+    .whoweare-section2 p {
+        font-size: 6px;
+        margin-right: 5px;
+        padding-left: 110px;
+    }
+    .whoweare-section1 .whoweare-buttons {
+        margin-left: 5px;
+    }
+    .whoweare-section2 .whoweare-buttons {
+        margin-right: 5px;
+    }
+    .bridging-the-gap {
+        width: 120px;
+        margin-right: 20px;
+        border-radius: 15px;
+    }
+    .asl-text-img {
+        width: 80px;
+        margin-left: 20px;
+        border-radius: 15px;
+    }
+    .whoweare-buttons {
+        padding: 4px 8px;
+        margin: 2px;
+        font-size: 6px;
+        border: 1.2px solid #0094ff;
+    }
+    .whoweare-buttons:hover {
+        border: 1.2px solid #fff
+    }
+    .whoweare-buttons img {
+        width: 8px;
+        margin-left: 5px;
+    }
+}

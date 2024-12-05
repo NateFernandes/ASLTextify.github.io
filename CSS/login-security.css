@@ -1,0 +1,182 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+}
+
+.breadcrumbs {
+    font-size: 14px;
+    margin-top: 50px;
+    margin-left: 15%;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s;
+}
+
+.breadcrumbs a:hover {
+    color: #0056b3;
+}
+
+.breadcrumbs span {
+    color: #6c757d;
+}
+
+.container {
+    margin-top: 20px;
+    max-width: 100%;
+    margin: auto;
+    padding-left: 15%;
+    padding-right: 15%;
+    margin-bottom: 550px;
+}
+
+h2 {
+    text-align: left;
+    font-size: 35px;
+}
+
+.password-section,
+.account-section {
+    margin-bottom: 20px;
+}
+
+.password-info,
+.account-info {
+    display: flex;
+    flex-direction: column; /* Change to column layout */
+    justify-content: flex-start; /* Align to the start */
+}
+
+.label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.password-update-form {
+    margin-top: 10px;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.password-strength {
+    font-size: 14px;
+    display: none; /* Initially hidden */
+    margin-bottom: 10px;
+}
+
+/* Update and Deactivate Button Styles */
+.update-btn,
+.deactivate-btn {
+    position: absolute;
+    cursor: pointer;
+    background-color: #4CAF50; /* Greenish color */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Rounded edges */
+    padding: 10px 20px; /* Adjusted padding for better button size */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth hover effect */
+    align-self: flex-end; /* Align to the right */
+    width: auto; /* Auto width for better alignment */
+}
+
+.update-btn:hover,
+.deactivate-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-2px); /* Lift effect */
+}
+
+/* Submit and Cancel Button Styles */
+.submit-btn,
+.cancel-btn {
+    cursor: pointer;
+    background-color: #007bff; /* Blue color */
+    color: white; /* White text for contrast */
+    border: 2px solid transparent; /* Border to transition on hover */
+    border-radius: 50px; /* Rounded edges for a softer look */
+    padding: 10px 20px; /* More padding for a better click area */
+    font-weight: bold; /* Bold text for emphasis */
+    transition: background-color 0.3s, transform 0.2s, border-color 0.3s; /* Smooth hover effect */
+}
+
+.submit-btn:hover,
+.cancel-btn:hover {
+    background-color: #0056b3; /* Slightly darker blue on hover */
+    transform: translateY(-2px); /* Lift effect */
+    border-color: #004085; /* Add a darker blue border on hover */
+}
+
+/* Last Updated and Description Styles */
+.last-updated {
+    display: block; /* Ensure it's below the label */
+    margin-top: 5px; /* Space from the label */
+}
+
+.description {
+    margin-top: 5px; /* Space below account label */
+    display: block; /* Ensure it's below the label */
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .update-btn,
+    .deactivate-btn {
+        position: unset;
+    }
+
+    .breadcrumbs {
+        margin-left: 5%;
+    }
+
+    .container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    h2 {
+        font-size: 28px; /* Smaller heading on mobile */
+    }
+
+    .password-info,
+    .account-info {
+        flex-direction: column; /* Stack elements on smaller screens */
+    }
+
+    .update-btn,
+    .deactivate-btn,
+    .submit-btn,
+    .cancel-btn {
+        width: 100%; /* Full-width buttons on mobile */
+        margin-top: 10px; /* Consistent margin */
+    }
+
+    .password-strength {
+        font-size: 12px; /* Smaller text on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 24px; /* Even smaller heading on very small screens */
+    }
+
+    .breadcrumbs {
+        font-size: 12px; /* Smaller breadcrumbs on mobile */
+    }
+
+    input[type="password"] {
+        padding: 8px; /* Smaller input padding on mobile */
+    }
+}

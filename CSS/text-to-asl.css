@@ -1,0 +1,333 @@
+/* Global Styles */
+
+h1, h2, .translator-section p {
+    text-align: center;
+    color: #222;
+}
+
+h1{
+    font-size: 2rem;
+}
+
+label{
+    size: 6rem;
+    color: #00000080;
+}
+
+/* Translator Section */
+.translator-section {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.translator-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 2rem;
+    max-height: 325px;
+}
+
+.input-box {
+    flex: 1;
+    padding: 13px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    
+}
+
+.output-box {
+    flex: 1; /* Takes equal space */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+
+/* Center the textarea inside the input box */
+.textarea-container {
+    display: flex; /* Use flex to center the textarea */
+    justify-content: center; /* Center horizontally */
+    margin-bottom: 10px; /* Space for mic and button */
+}
+
+/* Textarea inside input box */
+#input-text {
+    width: 90%; /* Width set to 90% */
+    height: 150px; /* Set height */
+    padding: 1rem;
+    border: 1px solid #4804cf; /* Your border color */
+    border-radius: 5px; /* Your border radius */
+    resize: none; /* Disable resizing */
+    font-size: 1rem; /* Font size */
+    font-family: 'Poppins', sans-serif; /* Font family */
+}
+
+
+#output-translation {
+    width: 93%;
+    display: flex;
+    flex-direction: column; /* Stack word containers vertically */
+    gap: 5px; /* Space between each word */
+    margin: 0 auto;
+}
+
+.output-box img {
+    width: 40px;
+    height: auto;
+}   
+
+/* Ensure that the word and its ASL images are placed inside a box */
+.word-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of long words */
+    align-items: center;
+    margin-bottom: 15px;
+    background-color: #e0f7fa;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #006064;
+    box-sizing: border-box;
+    max-width: 100%; /* Keep word container within output box */
+    overflow-wrap: break-word; /* Break long words onto new lines */
+}
+
+/* Style for the word text */
+.word-container span {
+    font-size: 18px;
+    margin-right: 10px; /* Space between word and images */
+    color: #006064; /* Custom color for the word */
+    font-weight: bold; /* Make the word bold */
+}
+
+/* Style for ASL images */
+.word-container img {
+    margin-right: 5px; /* Space between images */
+    width: 60px; /* Adjust image size as needed */
+    height: auto;
+}
+
+
+.output-box {
+    width: 300px; /* Set a fixed width */
+    max-width: 100%; /* Ensure it doesn't overflow on smaller screens */
+    background-color: #fff;
+    padding: 10px;
+    border: 2px;
+    border-radius: 15px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 500px; /* Set a max height for scrolling */
+    word-break: break-word; 
+}
+
+#translate-button {
+    position: absolute;
+    margin-top: 23px;
+    right: 26px; /* Adjust this value to control the horizontal spacing */
+    background-color: #0077B6;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transform: translateY(-15px);
+}
+
+#translate-button:hover {
+    background-color: #004494;
+}
+
+
+.input-box .icon {
+    width: 35px;
+    height: auto;
+    margin-left: 5px; /* Space between label and icon */
+}
+
+.input-box label {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.output-box label {
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: block;
+}
+
+
+/* Styles for the dark mode toggle button */
+.dark-mode-toggle {
+    position: fixed;
+    margin-bottom: 15px;
+    z-index: 1000;
+    bottom: 20px;
+    right: 20px;
+    background-color: #000000;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle img {
+    width: 30px;
+    height: 25px;
+}
+
+.dark-mode-toggle:hover {
+    background-color: #005f99;
+}
+
+.dark-mode {
+    background-color: #1a1a1a;
+    color: #f1f1f1;
+}
+
+.dark-mode .input-box{
+    border: 2rem;
+    box-shadow: 0px 0px 45px rgba(255, 255, 255, 0.6); /* Softer inner shadow */
+}
+
+.dark-mode .output-box{
+    border: 2rem;
+    box-shadow: 0px 0px 45px rgba(255, 255, 255, 0.6); /* Softer inner shadow */
+}
+
+.dark-mode h1{
+    text-align: center;
+    color: #ffffff;
+}
+
+.dark-mode h2 {
+    text-align: center;
+    color: #ffffff;
+}
+
+.dark-mode p {
+    text-align: center;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem; /* Reduce font size for smaller screens */
+    }
+
+    .translator-container {
+        flex-direction: column; /* Stack input and output vertically */
+        align-items: center; /* Center align items */
+        max-height: unset;
+    }
+
+    .input-box, .output-box {
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    #translate-button {
+        width: 100%; /* Full width button */
+        position: static; /* Reset position */
+        transform: none; /* Reset transformation */
+        margin-top: 10px; /* Add margin */
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem; /* Further reduce font size for small phones */
+    }
+
+    h2 {
+        margin-top: 30px;
+        font-size: 1.2rem;
+    }
+}
+
+.mic-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    margin: auto;
+    background-color: rgb(118 118 118);
+    background-image: url('../Images/mic.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    color: white;
+    transition: all .2s;
+    position: relative;
+    cursor: pointer;
+}
+
+.mic-btn.listening {
+    background-color: rgb(223 50 50);
+    animation: none;
+}
+
+.mic-btn.listening::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 5px solid rgb(223 50 50);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+    animation: pulsate infinite 1.2s;
+}
+
+@keyframes pulsate {
+    0% {
+        transform: translate(-50%, -50%) scale(1, 1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.3, 1.3);
+        opacity: 0;
+    }
+}
+
+.clear-everything {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 19px; /* Legible size */
+    color: #fff; /* White text for contrast */
+    background-color: #ff5252; /* Vibrant red */
+    border: none; /* Remove default browser border */
+    border-radius: 25px; /* Rounded corners for pill-like shape */
+    cursor: pointer; /* Change cursor on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: all 0.3s ease; /* Smooth hover effect */
+    transform: translateY(-20px);
+    margin-left: 20px;
+}
+
+/* Hover Effect */
+.clear-everything:hover {
+    background-color: #ff1e1e; /* Darker red on hover */
+}
+
+@media (max-width: 850px) {
+    .clear-everything {
+        padding: 12px 20px;
+        transform: translateY(-20px);
+        margin-left: 10px;
+    }
+}

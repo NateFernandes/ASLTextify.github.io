@@ -1,0 +1,266 @@
+html {
+    overflow-x: hidden;  /* Block horizontal overflow on the entire page */
+}
+
+/* Lock scrolling when modal is active */
+.lock-scroll {
+    overflow: hidden;  /* Lock scrolling */
+}
+
+/* Cookie Banner Styles */
+.cookie-banner {
+    position: fixed;
+    bottom: 20px; /* Space from the bottom */
+    left: 20px; /* Move to the left side */
+    background: linear-gradient(45deg, #0052cc, #0094ff);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    padding: 20px; /* More padding for bigger look */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 15px; /* Rounded corners */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    max-width: 350px; /* Wider container */
+}
+
+/* Adjust content layout for a larger area */
+.cookie-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Adjust button layout with more space */
+.cookie-buttons {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.cookie-button {
+    padding: 12px 25px; /* Larger buttons */
+    border-radius: 5px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px; /* Bigger font size */
+}
+
+.cookie-button.accept {
+    background: #ffffff;
+    color: #0052cc;
+}
+
+.cookie-button.accept:hover {
+    background: #eeeeee;
+}
+
+.cookie-button.manage {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.cookie-button.manage:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #eeeeee;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .cookie-banner {
+        bottom: 10px; /* Less space on smaller screens */
+        left: 10px; /* Move to the left side */
+        padding: 15px; /* Slightly smaller padding */
+        max-width: 280px; /* Adjust for smaller screens */
+    }
+    
+    .cookie-content p {
+        font-size: 14px; /* Bigger text for mobile */
+    }
+    
+    .cookie-button {
+        padding: 10px 20px; /* Slightly smaller but still big enough */
+        font-size: 13px; /* A bit bigger on mobile */
+    }
+}
+
+/* Modal styles */
+.cookie-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darker background */
+    overflow: hidden;
+}
+
+.cookie-modal-content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(150deg, rgba(41,139,247,1) 0%, rgba(128,207,255,1) 100%);
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px; /* Keep a max width */
+    text-align: center;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+}
+
+.cookie-modal-content h2, .cookie-modal-content p, .cookie-content p {
+    color: #fff;
+}
+
+/* Close button styling */
+#close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff; /* Light color for contrast */
+}
+
+/* Toggle switch styles */
+.cookie-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 0;
+    color: #fff; /* White text */
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Button styles */
+.modal-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#accept-all {
+    background-color: #0366cc;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%; /* Full width on smaller screens */
+}
+
+#accept-all:hover {
+    background-color: #024a96;
+}
+
+/* Secondary buttons styling */
+.secondary-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Make it full width */
+    gap: 10px; /* Space between buttons */
+}
+
+#save-preferences,
+#dismiss-modal {
+    background-color: transparent;
+    color: #0366cc;
+    border: 2px solid #0366cc;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    flex: 1; /* Flex to make them equal width */
+}
+
+#save-preferences:hover,
+#dismiss-modal:hover {
+    background-color: #0366cc;
+    color: white;
+}
+
+#dismiss-modal {
+    color: darkred;
+    border: 2px solid darkred;
+}
+
+#dismiss-modal:hover {
+    background-color: darkred;
+    color: white;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+    .cookie-modal-content {
+        padding: 15px; /* Reduce padding on small screens */
+    }
+
+    #accept-all {
+        font-size: 14px; /* Smaller text for smaller screens */
+    }
+
+    #save-preferences,
+    #dismiss-modal {
+        font-size: 14px; /* Smaller text for smaller screens */
+        padding: 8px 12px; /* Adjust padding */
+    }
+}

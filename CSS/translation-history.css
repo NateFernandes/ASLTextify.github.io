@@ -1,0 +1,319 @@
+/* Container */
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+/* Title */
+.title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Header Row Styling */
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 60px;
+    background-color: #f0f0f0;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: -30px;
+    border-radius: 20px;
+}
+
+/* Header Column Alignment */
+.history-header > div {
+    flex: 1;
+    padding: 5px;
+}
+
+.header-text {
+    text-align: left;
+}
+
+.header-gesture {
+    text-align: center;
+}
+
+.header-timestamp {
+    text-align: right;
+}
+
+/* Scrolling Boxes */
+.scroll-box {
+    max-height: 600px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Translation Items */
+.translation-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    max-height: 120px; /* Max height for each item */
+    overflow: hidden; /* Hide overflow content */
+    text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+    position: relative;
+}
+
+.translation-item:hover {
+    background-color: #f2f2f2;
+}
+
+/* Left: Text */
+.translation-text {
+    flex: 1;
+    text-align: left;
+    color: #000;
+    font-size: 16px;
+    padding-right: 10px;
+}
+
+/* Center: ASL Gestures */
+.gesture-display {
+    flex: 2;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 5px;
+    overflow: hidden; /* Hide overflowing gestures */
+}
+
+.gesture-display img {
+    width: 60px;
+    height: auto;
+    margin: 2px;
+}
+
+/* Right: Timestamp */
+.timestamp {
+    flex: 1;
+    text-align: right;
+    color: #888;
+    font-size: 0.9rem;
+    padding-left: 10px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    color: #000;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 70%;
+    max-height: 80%;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-content .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
+}
+
+.modal-content .close-btn:hover {
+    color: #555;
+}
+
+.word-box {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.word-box div:first-child {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.word-box img {
+    margin: 2px;
+    vertical-align: middle;
+}
+
+.translator-link {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.translator-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.translator-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* -------- Media Queries for Responsiveness -------- */
+
+/* Small devices (phones in portrait) */
+@media (max-width: 576px) {
+    .title {
+        font-size: 1.4rem; /* Smaller title */
+    }
+
+    .history-header {
+        padding: 8px;
+    }
+
+    .history-header > div {
+        padding: 5px 10px;
+        text-align: center;
+    }
+
+    .translation-item {
+        flex-direction: row; /* Keep row layout */
+        padding: 8px;
+        max-height: 70px; /* Smaller max height */
+    }
+
+    .translation-text {
+        font-size: 10; /* Smaller text */
+    }
+
+    .gesture-display img {
+        width: 30px; /* Smaller gesture images */
+    }
+
+    .timestamp {
+        font-size: 0.5rem; /* Smaller font size */
+    }
+
+    .scroll-box {
+        max-height: 250px;
+        padding: 10px;
+    }
+
+    .word-box {
+        padding: 0px;
+        font-size: 0.9rem; /* Smaller word box text */
+    }
+
+    .word-box div:first-child {
+        font-size: 0.8rem;
+        margin-bottom: 2px;
+    }
+}
+
+/* Medium devices (tablets in portrait) */
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.6rem;
+    }
+
+    .history-header {
+        padding: 12px;
+    }
+
+    .history-header > div {
+        padding: 5px 10px;
+        text-align: center;
+    }
+
+    .translation-item {
+        flex-direction: row;
+        padding: 10px;
+        max-height: 80px; /* Reduced max height */
+    }
+
+    .translation-text {
+        font-size: 0.85rem;
+    }
+
+    .gesture-display img {
+        width: 40px;
+    }
+
+    .timestamp {
+        font-size: 0.75rem; /* Smaller font size */
+    }
+
+    .scroll-box {
+        max-height: 300px;
+        padding: 12px;
+    }
+
+    .word-box {
+        padding: 8px;
+        font-size: 1rem; /* Smaller word box text */
+    }
+}
+
+/* Larger Devices (Tablets in landscape, small laptops) */
+@media (max-width: 1024px) {
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .history-header {
+        padding: 15px 25px;
+    }
+
+    .history-header > div {
+        padding: 5px 10px;
+        text-align: center;
+    }
+
+    .translation-item {
+        padding: 12px;
+        max-height: 90px; /* Reduced max height */
+    }
+
+    .translation-text {
+        font-size: 0.9rem;
+    }
+
+    .gesture-display img {
+        width: 50px;
+    }
+
+    .timestamp {
+        font-size: 0.8rem;
+    }
+
+    .scroll-box {
+        max-height: 500px;
+        padding: 15px;
+    }
+
+    .word-box {
+        padding: 10px;
+        font-size: 1.1rem; /* Slightly smaller font size */
+    }
+}

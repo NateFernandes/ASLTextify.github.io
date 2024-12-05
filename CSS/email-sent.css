@@ -1,0 +1,244 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1E3A8A, #2563EB);
+    overflow: hidden;
+    position: relative; /* Needed for pseudo-elements */
+    color: var(--text-color);
+}
+
+/* Responsive Theme Variables */
+:root {
+    --text-color: #ffffff;
+    --button-color: #60A5FA;
+    --button-hover: #93C5FD;
+}
+
+/* Sexy Curves (Pure CSS) */
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 150px; /* Base wave height */
+    z-index: -1; /* Behind content */
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 0.4s ease-in-out;
+}
+
+body::before {
+    top: 0;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="%231E3A8A" fill-opacity="1" d="M0,160L60,186.7C120,213,240,267,360,245.3C480,224,600,128,720,96C840,64,960,96,1080,112C1200,128,1320,128,1380,128L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"%3E%3C/path%3E%3C/svg%3E');
+}
+
+body::after {
+    bottom: 0;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="%232563EB" fill-opacity="1" d="M0,192L60,176C120,160,240,128,360,112C480,96,600,96,720,96C840,96,960,96,1080,112C1200,128,1320,192,1380,224L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"%3E%3C/path%3E%3C/svg%3E');
+}
+
+/* Responsive Curves */
+@media (max-width: 1024px) {
+    body::before,
+    body::after {
+        height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    body::before,
+    body::after {
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    body::before,
+    body::after {
+        height: 80px;
+    }
+}
+
+/* Content Styling */
+.logo-container {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+}
+
+.logo {
+    height: 70px;
+}
+
+.email-sent-container {
+    text-align: center;
+    max-width: 500px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.gif-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.email-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.email-message {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 10px 0;
+    line-height: 1.5;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.email-subtext {
+    font-size: 16px;
+    margin: 10px 0 20px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.email-address {
+    font-weight: bold;
+    color: var(--button-color);
+}
+
+/* Action Buttons - Default Styling */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+    flex-direction: row; /* Side-by-side by default */
+}
+
+/* Buttons */
+.back-to-login,
+.resend-email {
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--text-color);
+    border: 2px solid var(--button-color);
+    padding: 12px 24px;
+    border-radius: 5px;
+    transition: all 0.4s ease;
+    display: inline-block;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    background: var(--button-color);
+    cursor: pointer;
+}
+
+.back-to-login:hover,
+.resend-email:hover {
+    background: var(--button-hover);
+    border-color: var(--button-hover);
+}
+
+/* Medium Screens: 768px and below */
+@media (max-width: 768px) {
+    .email-sent-container {
+        max-width: 400px; /* Slightly reduce width */
+        padding: 30px; /* Less padding */
+    }
+
+    .gif-container {
+        width: 120px; /* Smaller GIF */
+        height: 120px;
+        border-width: 4px; /* Thinner border */
+    }
+
+    .email-message {
+        font-size: 22px; /* Slightly smaller font */
+    }
+
+    .email-subtext {
+        font-size: 14px; /* Adjust text size */
+    }
+
+    .action-buttons {
+        flex-direction: column; /* Stack buttons */
+        gap: 15px; /* Adjust spacing */
+    }
+}
+
+/* Small Screens: 480px and below */
+@media (max-width: 480px) {
+    .email-sent-container {
+        max-width: 320px; /* Compact container */
+        padding: 20px; /* Tighten padding */
+    }
+
+    .gif-container {
+        width: 100px; /* Smaller GIF */
+        height: 100px;
+        border-width: 3px; /* Minimal border */
+    }
+
+    .email-message {
+        font-size: 18px; /* Smaller font for titles */
+    }
+
+    .email-subtext {
+        font-size: 12px; /* Compact subtext */
+    }
+
+    .action-buttons {
+        gap: 12px; /* Tighten spacing */
+    }
+}
+
+/* Extra Small Screens: 360px and below */
+@media (max-width: 360px) {
+    .email-sent-container {
+        max-width: 280px; /* Super-compact container */
+        padding: 15px; /* Minimal padding */
+    }
+
+    .gif-container {
+        width: 80px; /* Tiny GIF */
+        height: 80px;
+        border-width: 2px; /* Slim border */
+    }
+
+    .email-message {
+        font-size: 16px; /* Small font for tiny screens */
+    }
+
+    .email-subtext {
+        font-size: 10px; /* Compact subtext */
+    }
+
+    .action-buttons {
+        gap: 10px; /* Reduced spacing */
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

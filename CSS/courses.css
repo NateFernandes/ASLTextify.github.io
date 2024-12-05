@@ -1,0 +1,504 @@
+.courses-container {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 400px;
+}
+
+/* Title styling */
+.courses-title {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #000000;
+    text-align: center;
+}
+
+/* Main rectangle styling */
+.main-rectangle {
+    background-color: #0094ff;
+    height: 160px;
+    width: 89%;
+    padding: 40px;
+    position: relative;
+    border-radius: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Rectangle title styling */
+.rectangle-title {
+    color: #fff;
+    font-size: 25px;
+    font-weight: 550;
+    margin-top: -20px;
+}
+
+/* Image boxes container */
+.image-boxes {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 30px; /* Add some space above the boxes */
+}
+
+/* Individual image boxes */
+.image-box {
+    width: 46%; /* Each box takes 45% of the width */
+    height: 300px;
+    background-color: #53b7ff; /* Box background color */
+    border-radius: 20px;
+    position: relative;
+    top: 50%; /* Move it outside the rectangle by 50% of its height */
+    margin: 0 30px;
+}
+
+/* Images inside the boxes */
+.image-box img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px; /* Keep the box’s round edges */
+}
+
+.box-btn {
+    background-color: #fff;
+    color: #000;
+    padding: 12px 65px;
+    border: none;
+    border-radius: 40px;
+    position: absolute;
+    bottom: -27px; /* Position it half inside and half outside */
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.box-btn:hover {
+    background-color: #fc4c4c;
+    transform: translateX(-50%) scale(1.1); /* Increase size on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.box-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Styling for each box-info */
+.box-info {
+    width: 46%; /* Matches the image box width */
+    margin: 0 30px; /* Same margin as image boxes */
+    text-align: center;
+}
+
+/* Headings and Text under the image boxes */
+.box-heading {
+    font-size: 20px;
+    color: #000;
+    font-weight: 550;
+}
+
+.box-text {
+    font-size: 15px;
+    color: #000000;
+    margin-top: -10px;
+}
+
+/* Individual external image boxes */
+.external-image-box {
+    width: 100%; /* Each box takes about 30% of the width */
+    height: 300px;
+    position: relative;
+}
+
+/* Images inside the external boxes */
+.external-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image fits well */
+    border-radius: 20px;
+}
+
+.ext-box-info {
+    margin-top: 40px;
+    width: 100%; /* Matches the external image box width */
+    text-align: center;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+}
+
+/* Modal content styles */
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    width: 80%; /* Width of the modal */
+    height: auto; /* Height of the modal */
+    max-width: 700px; /* Max width */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Responsive iframe styles */
+#videoFrame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.swiper-container {
+    padding: 0 5px;
+    overflow: hidden; /* Keep this to prevent overflow */
+    position: relative; /* Set position to relative for pseudo-elements */
+    height: 500px;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    top: 10px;
+}
+
+/* Swiper Navigation */
+.swiper-button-next, .swiper-button-prev {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    transform: translateY(-89px);
+}
+
+/* Only show buttons when hovered over swiper */
+.swiper-container:hover .swiper-button-next, .swiper-container:hover .swiper-button-prev {
+    opacity: 1;
+}
+
+/* Ensure SVGs fit correctly */
+.swiper-button-next img, .swiper-button-prev img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s;
+}
+
+.swiper-button-next img {
+    margin-right: 30px;
+}
+
+.swiper-button-prev img {
+    margin-left: 30px;
+}
+
+/* On hover, increase size a bit */
+.swiper-button-next:hover img, .swiper-button-prev:hover img {
+    transform: scale(1.2); /* Makes the button grow on hover */
+}
+
+/* Hide default Swiper arrow icons */
+.swiper-button-next:after, .swiper-button-prev:after {
+    display: none; /* Hide default blue arrows */
+}
+
+@media (max-width: 1024px) {
+    .box-btn {
+        padding: 10px 50px;
+        font-size: 18px;
+        bottom: -17px;
+    }
+
+    .image-box {
+        height: 220px;
+    }
+
+    .external-image-box {
+        height: 220px;
+    }
+
+    .box-heading {
+        font-size: 18px;
+    }
+
+    .box-text {
+        font-size: 14px;
+    }
+
+    .courses-container {
+        margin-bottom: 350px;
+    }
+
+    .main-rectangle {
+        height: 120px;
+    }
+
+    .swiper-container {
+        height: 400px;
+    }
+    
+    .swiper-button-next, .swiper-button-prev {
+        transform: translateY(-79px);
+    }
+}
+
+@media (max-width: 750px) {
+    .rectangle-title {
+        font-size: 20px;
+        margin-top: -30px;
+    }
+
+    .box-btn {
+        padding: 6px 40px;
+        font-size: 15px;
+        bottom: -16px
+    }
+
+    .image-box {
+        height: 200px;
+        margin: 0 10px;
+    }
+
+    .external-image-box {
+        height: 200px;
+    }
+
+    .box-heading {
+        font-size: 16px;
+    }
+
+    .box-text {
+        font-size: 12px;
+    }
+
+    .courses-container {
+        margin-bottom: 350px;
+    }
+
+    .main-rectangle {
+        height: 80px;
+        width: 80%;
+    }
+
+    .swiper-container {
+        height: 350px;
+    }
+    
+    .swiper-button-next, .swiper-button-prev {
+        transform: translateY(-73px);
+    }
+
+    .image-boxes {
+        margin-top: 10px; /* Add some space above the boxes */
+    }
+
+    .swiper-slide {
+        top: 0px;
+    }
+
+    .courses-title {
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+
+    .swiper-button-next img, .swiper-button-prev img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .swiper-button-next img {
+        margin-right: 20px;
+    }
+    
+    .swiper-button-prev img {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 650px) {
+    .rectangle-title {
+        font-size: 16px;
+        margin-top: -25px;
+    }
+
+    .box-btn {
+        padding: 5px 30px;
+        font-size: 13px;
+        bottom: -15px
+    }
+
+    .image-box {
+        height: 160px;
+        margin: 0 10px;
+    }
+
+    .external-image-box {
+        height: 160px;
+    }
+
+    .box-heading {
+        font-size: 14px;
+    }
+
+    .box-text {
+        font-size: 10px;
+    }
+
+    .courses-container {
+        margin-bottom: 300px;
+    }
+
+    .main-rectangle {
+        height: 50px;
+        width: 90%;
+        padding: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .swiper-container {
+        height: 300px;
+    }
+    
+    .swiper-button-next, .swiper-button-prev {
+        transform: translateY(-72px);
+    }
+
+    .image-boxes {
+        margin-top: 10px; /* Add some space above the boxes */
+    }
+
+    .swiper-slide {
+        top: 0px;
+    }
+
+    .courses-title {
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .rectangle-title {
+        font-size: 14px;
+        margin-top: -20px;
+    }
+
+    .box-btn {
+        padding: 4px 10px;
+        font-size: 10px;
+        bottom: -15px
+    }
+
+    .image-box {
+        height: 120px;
+        margin: 0 5px;
+    }
+
+    .external-image-box {
+        height: 120px;
+    }
+
+    .box-heading {
+        font-size: 11px;
+    }
+
+    .box-text {
+        font-size: 7px;
+    }
+
+    .courses-container {
+        margin-bottom: 200px;
+    }
+
+    .main-rectangle {
+        width: 95%;
+        height: 40px;
+        padding: 40px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .swiper-container {
+        height: 180px;
+    }
+    
+    .swiper-button-next, .swiper-button-prev {
+        transform: translateY(-26px);
+    }
+
+    .image-boxes {
+        margin-top: 10px; /* Add some space above the boxes */
+    }
+
+    .swiper-slide {
+        top: 0px;
+    }
+
+    .courses-title {
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+
+    .box-content {
+        margin-top: 10px;
+    }
+
+    .ext-box-info {
+        margin-top: 20px;
+    }
+}
+
+
+
+
+
+
+/* Styles for the dark mode toggle button */
+.dark-mode-toggle {
+    position: fixed;
+    margin-bottom: 15px;
+    z-index: 1000;
+    bottom: 20px;
+    right: 20px;
+    background-color: #000000;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle img {
+    width: 30px;
+    height: 25px;
+}
+
+.dark-mode-toggle:hover {
+    background-color: #005f99;
+}
+
+.dark-mode {
+    background-color: #1a1a1a;
+    color: #f1f1f1;
+}
+
+.dark-mode .courses-title{
+    color:#ffffff;
+}
+
+.dark-mode .box-heading{
+    color:#ffffff;
+}
+
+.dark-mode .box-text{
+    color:#ffffff;
+}

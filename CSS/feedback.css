@@ -1,0 +1,213 @@
+h1, h2, .feedback-section p {
+    text-align: center;
+    color: #222;
+}
+
+h1{
+    font-size: 2rem;
+    margin-top: 50px;
+}
+
+label{
+    size: 6rem;
+    color: #00000080;
+}
+
+/* Styles for the feedback form */
+.feedback-form {
+    background: #fff;
+    padding: 33px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    max-width: 900px; /* Max width for larger screens */
+    width: 90%; /* Set width to 90% for smaller screens */
+    margin: 0 auto; /* Center the form horizontally */
+    margin-top: 40px;
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.instruction {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    direction: rtl;
+    font-size: 2.5em;
+    user-select: none;
+    margin-bottom: 15px;
+}
+
+.stars input {
+    display: none;
+}
+
+.stars label {
+    color: #ccc;
+    padding: 0 5px;
+}
+
+.stars input:checked ~ label {
+    color: gold;
+}
+
+.stars input:checked ~ input ~ label {
+    color: gold;
+}
+
+.star {
+    cursor: pointer;
+}
+
+.feedback-text {
+    width: 100%; /* Full width for smaller screens */
+    height: 100px; /* Fixed height */
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    resize: none; /* Prevent resizing */
+}
+
+.submit-button {
+    width: 100%; /* Full width button for better responsiveness */
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+.message {
+    margin-top: 10px;
+    color: #333;
+    font-size: 1.1em;
+    text-align: center;
+    display: none; /* Hide by default */
+}
+
+
+
+
+/* Styles for the dark mode toggle button */
+.dark-mode-toggle {
+    position: fixed;
+    margin-bottom: 15px;
+    z-index: 1000;
+    bottom: 20px;
+    right: 20px;
+    background-color: #000000;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle img {
+    width: 30px;
+    height: 25px;
+}
+
+.dark-mode-toggle:hover {
+    background-color: #005f99;
+}
+
+.dark-mode {
+    background-color: #1a1a1a;
+    color: #f1f1f1;
+}
+
+.dark-mode h1{
+    text-align: center;
+    color: #ffffff;
+}
+
+.dark-mode h2 {
+    text-align: center;
+    color: #ffffff;
+}
+
+.dark-mode p {
+    text-align: center;
+    color: #ffffff;
+}
+
+.dark-mode .feedback-form h2{
+    color: black;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+    .feedback-form {
+        width: 90%; /* Keep it responsive */
+        padding: 20px; /* Adjust padding */
+    }
+
+    .stars {
+        font-size: 2em; /* Adjust star size for medium screens */
+    }
+
+    .feedback-text {
+        height: 80px; /* Adjust height for smaller screens */
+    }
+
+    .submit-button {
+        width: 100%; /* Button takes full width */
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem; /* Reduce font size for smaller screens */
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .feedback-form {
+        padding: 15px; /* Further reduce padding for smaller screens */
+    }
+
+    .stars {
+        font-size: 1.5em; /* Smaller stars for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem; /* Further reduce font size for small phones */
+    }
+
+    .feedback-form {
+        padding: 10px; /* Even less padding for small phones */
+    }
+
+    h2 {
+        margin-top: 30px;
+        font-size: 1.2rem;
+    }
+
+    .feedback-text {
+        height: 70px; /* Reduce height further */
+    }
+
+    .submit-button {
+        padding: 8px; /* Adjust button padding */
+        font-size: 1em; /* Smaller button text */
+    }
+}

@@ -1,0 +1,125 @@
+body {
+    background-color: #f9f9f9;
+}
+
+.breadcrumbs {
+    font-size: 14px;
+    margin-top: 50px;
+    margin-left: 15%;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s;
+}
+
+.breadcrumbs a:hover {
+    color: #0056b3;
+}
+
+.breadcrumbs span {
+    color: #6c757d; /* Gray color for the current page text */
+}
+
+/* General container styling */
+.privacy-container {
+    max-width: 100%;
+    padding-left: 15%;
+    padding-right: 15%;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Heading and subheading styling */
+.privacy-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+.privacy-container h2 {
+    font-size: 1.8rem;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.privacy-container h3 {
+    font-size: 1.4rem;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Paragraph and list styling */
+.privacy-container p,
+.privacy-container ul {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.privacy-container ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Intro text styling */
+.intro {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 20px;
+    border-left: 4px solid #4CAF50;
+    padding-left: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .breadcrumbs {
+        margin-left: 5%;
+    }
+
+    .privacy-container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .privacy-container h1 {
+        font-size: 2rem;
+    }
+
+    .privacy-container h2 {
+        font-size: 1.6rem;
+    }
+
+    .privacy-container h3 {
+        font-size: 1.2rem;
+    }
+
+    .privacy-container p,
+    .privacy-container ul {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .privacy-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .privacy-container h2 {
+        font-size: 1.4rem;
+    }
+
+    .privacy-container h3 {
+        font-size: 1.1rem;
+    }
+
+    .privacy-container p,
+    .privacy-container ul {
+        font-size: 0.85rem;
+    }
+}

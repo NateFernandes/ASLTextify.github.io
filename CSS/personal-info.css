@@ -1,0 +1,205 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+}
+
+.breadcrumbs {
+    font-size: 14px;
+    margin-top: 50px;
+    margin-left: 15%;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s;
+}
+
+.breadcrumbs a:hover {
+    color: #0056b3;
+}
+
+.breadcrumbs span {
+    color: #6c757d; /* Gray color for the current page text */
+}
+
+.container {
+    margin-top: 0px;
+    max-width: 100%;
+    margin: auto;
+    padding-left: 15%;
+    padding-right: 15%;
+    margin-bottom: 300px;
+}
+
+h2 {
+    text-align: left;
+    font-size: 35px;
+}
+
+.info-section {
+    margin-bottom: 20px;
+}
+
+.info-item {
+    position: relative;
+    margin: 15px 0;
+}
+
+.label {
+    font-weight: bold;
+    display: block; /* Makes label take full width */
+    margin-bottom: 5px; /* Space between label and value */
+}
+
+.value {
+    display: block; /* Makes value take full width */
+    margin-bottom: 10px; /* Space below the value */
+}
+
+.edit-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.edit-btn {
+    cursor: pointer;
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Rounded edges for consistency */
+    padding: 10px 15px;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth hover effect */
+}
+
+.edit-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-2px);
+}
+
+.ok-btn,
+.cancel-btn {
+    cursor: pointer;
+    background-color: #007bff; /* Original blue color */
+    color: white; /* White text for contrast */
+    border: 2px solid transparent; /* Border for hover transition */
+    border-radius: 50px; /* Rounded edges for that smooth look */
+    padding: 10px 20px; /* Nice padding for a better click area */
+    font-weight: bold; /* Bold text for emphasis */
+    transition: background-color 0.3s, transform 0.2s, border-color 0.3s; /* Smooth hover effects */
+}
+
+/* Hover effects */
+.ok-btn:hover,
+.cancel-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Lift effect */
+    border-color: #004085; /* Darker blue border on hover */
+}
+
+.input-container {
+    display: flex; /* Align input field and buttons in a row */
+    align-items: center; /* Center them vertically */
+}
+
+.input-field {
+    width: 250px; /* Fixed width for the input field */
+    padding: 10px; /* Padding for the input box */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px; /* Rounded corners */
+    margin-right: 10px; /* Space between input field and buttons */
+    margin-bottom: 10px;
+    font-size: 14px; /* Font size */
+    transition: border 0.3s; /* Smooth transition for border color */
+}
+
+.input-field:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove outline */
+}
+
+.input-field::placeholder {
+    color: #aaa; /* Placeholder color */
+}
+
+.photo-section {
+    margin: 20px 0;
+}
+
+.photo-section label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.photo-preview {
+    margin-bottom: 10px;
+}
+
+.photo-preview img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+}
+
+.photo-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.change-btn, .remove-btn {
+    cursor: pointer;
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Rounded edges */
+    padding: 10px 15px;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth hover effect */
+}
+
+.change-btn:hover, .remove-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .input-field {
+        width: 100%; /* Full width on smaller screens */
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 10px; /* Margin below */
+    }
+
+    .input-container {
+        flex-direction: column; /* Stack buttons and input */
+    }
+
+    .ok-btn, .cancel-btn, .edit-btn, .change-btn, .remove-btn {
+        position: unset;
+        width: 100%; /* Full width for buttons */
+        margin-top: 5px; /* Space above buttons */
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 28px; /* Smaller heading */
+    }
+
+    .breadcrumbs {
+        font-size: 12px; /* Smaller breadcrumbs */
+    }
+
+    .photo-preview img {
+        width: 120px; /* Smaller photo */
+        height: 120px;
+    }
+}
